@@ -9,13 +9,17 @@
 #import "MEDAppDelegate.h"
 #import "MEDMasterViewController.h"
 
+@interface MEDAppDelegate ()
+@property (nonatomic) MEDMasterViewController *masterViewController;
+@end
+
 @implementation MEDAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    MEDMasterViewController *masterViewController = [[MEDMasterViewController alloc] initWithNibName:@"MEDMasterViewController" bundle:nil];
-    masterViewController.view.frame = ((NSView *)self.window.contentView).bounds;
-    [self.window.contentView addSubview:masterViewController.view];
+    self.masterViewController = [[MEDMasterViewController alloc] initWithNibName:@"MEDMasterViewController" bundle:nil];
+    self.masterViewController.view.frame = ((NSView *)self.window.contentView).bounds;
+    [self.window.contentView addSubview:self.masterViewController.view];
 }
 
 @end

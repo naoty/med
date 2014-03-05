@@ -24,6 +24,7 @@
 		3D39B64618C6CEDB00EACA08 /* MEDMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B64318C6CEDB00EACA08 /* MEDMasterViewController.m */; };
 		3D39B64A18C6CF2700EACA08 /* MEDMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D39B64918C6CF2700EACA08 /* MEDMasterViewController.xib */; };
 		3D39B64B18C6CF2700EACA08 /* MEDMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D39B64918C6CF2700EACA08 /* MEDMasterViewController.xib */; };
+		3DB1736C18C75409003C2117 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB1736B18C75409003C2117 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		3D39B64218C6CEDB00EACA08 /* MEDMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDMasterViewController.h; sourceTree = "<group>"; };
 		3D39B64318C6CEDB00EACA08 /* MEDMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDMasterViewController.m; sourceTree = "<group>"; };
 		3D39B64918C6CF2700EACA08 /* MEDMasterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEDMasterViewController.xib; sourceTree = "<group>"; };
+		3DB1736B18C75409003C2117 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB1736C18C75409003C2117 /* WebKit.framework in Frameworks */,
 				3D39B60318C6C91A00EACA08 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +107,7 @@
 		3D39B60118C6C91A00EACA08 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3DB1736B18C75409003C2117 /* WebKit.framework */,
 				3D39B60218C6C91A00EACA08 /* Cocoa.framework */,
 				3D39B62118C6C91A00EACA08 /* XCTest.framework */,
 				3D39B60418C6C91A00EACA08 /* Other Frameworks */,
@@ -499,6 +503,7 @@
 				3D39B63218C6C91B00EACA08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3D39B63318C6C91B00EACA08 /* Build configuration list for PBXNativeTarget "medTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +512,7 @@
 				3D39B63518C6C91B00EACA08 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
