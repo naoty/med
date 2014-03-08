@@ -7,28 +7,24 @@
 //
 
 #import "MEDPipeline.h"
+#import "MEDConfig.h"
 
 @interface MEDPipeline ()
-@property (nonatomic) NSMutableArray *scripts;
+@property (nonatomic, copy) NSString *path;
+@property (nonatomic) NSArray *scripts;
 @end
 
 @implementation MEDPipeline
-
-// TODO: Set $PATH from config files to [NSTask -environment].
-const NSString *PATH = @"";
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        self.scripts = [NSMutableArray array];
+        MEDConfig *config = [MEDConfig sharedConfig];
+        self.path = config.path;
+        self.scripts = config.scripts;
     }
     return self;
-}
-
-- (void)addScript:(NSString *)script
-{
-    [self.scripts addObject:script];
 }
 
 - (void)runWithInput:(NSString *)input
@@ -50,7 +46,7 @@ const NSString *PATH = @"";
             NSTask *task = [[NSTask alloc] init];
             task.launchPath = @"/bin/sh";
             task.arguments = @[@"-l", @"-c", script];
-            task.environment = @{@"PATH": PATH};
+            task.environment = @{@"PATH": self.path};
             task.standardInput = previousTask.standardOutput;
             
             NSPipe *outputPipe = [NSPipe pipe];

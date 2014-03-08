@@ -9,6 +9,7 @@
 #import <WebKit/WebKit.h>
 #import "MEDMasterViewController.h"
 #import "MEDPipeline.h"
+#import "MEDConfig.h"
 
 @interface MEDMasterViewController () <NSTextDelegate, MEDPipelineDelegate>
 @property (nonatomic) IBOutlet NSTextView *editor;
@@ -31,7 +32,9 @@
 {
     [super loadView];
     
-    self.editor.font = [NSFont fontWithName:@"Monaco" size:12.0f];
+    MEDConfig *config = [MEDConfig sharedConfig];
+    
+    self.editor.font = [NSFont fontWithName:config.fontName size:[config.fontSize floatValue]];
     self.preview = [self.webView mainFrame];
     
     self.pipeline = [[MEDPipeline alloc] init];

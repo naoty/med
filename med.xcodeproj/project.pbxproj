@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0CBE8818CAC55600B199F3 /* MEDConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CBE8518CAC55600B199F3 /* MEDConfig.m */; };
+		3D0CBE8918CAC55600B199F3 /* MEDConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CBE8518CAC55600B199F3 /* MEDConfig.m */; };
+		3D0CBE8A18CAC55600B199F3 /* MEDPipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CBE8718CAC55600B199F3 /* MEDPipeline.m */; };
+		3D0CBE8B18CAC55600B199F3 /* MEDPipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CBE8718CAC55600B199F3 /* MEDPipeline.m */; };
+		3D0CBE8D18CAC6F700B199F3 /* med.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D0CBE8C18CAC6F700B199F3 /* med.json */; };
+		3D0CBE8E18CAC6F700B199F3 /* med.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D0CBE8C18CAC6F700B199F3 /* med.json */; };
 		3D39B60318C6C91A00EACA08 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D39B60218C6C91A00EACA08 /* Cocoa.framework */; };
 		3D39B60D18C6C91A00EACA08 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D39B60B18C6C91A00EACA08 /* InfoPlist.strings */; };
 		3D39B60F18C6C91A00EACA08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B60E18C6C91A00EACA08 /* main.m */; };
@@ -24,8 +30,6 @@
 		3D39B64618C6CEDB00EACA08 /* MEDMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B64318C6CEDB00EACA08 /* MEDMasterViewController.m */; };
 		3D39B64A18C6CF2700EACA08 /* MEDMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D39B64918C6CF2700EACA08 /* MEDMasterViewController.xib */; };
 		3D39B64B18C6CF2700EACA08 /* MEDMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D39B64918C6CF2700EACA08 /* MEDMasterViewController.xib */; };
-		3D8DEAD918C9EC1200C0CE6A /* MEDPipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8DEAD818C9EC1200C0CE6A /* MEDPipeline.m */; };
-		3D8DEADA18C9EC1200C0CE6A /* MEDPipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8DEAD818C9EC1200C0CE6A /* MEDPipeline.m */; };
 		3DB1736C18C75409003C2117 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB1736B18C75409003C2117 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D0CBE8418CAC55600B199F3 /* MEDConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDConfig.h; sourceTree = "<group>"; };
+		3D0CBE8518CAC55600B199F3 /* MEDConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDConfig.m; sourceTree = "<group>"; };
+		3D0CBE8618CAC55600B199F3 /* MEDPipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDPipeline.h; sourceTree = "<group>"; };
+		3D0CBE8718CAC55600B199F3 /* MEDPipeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDPipeline.m; sourceTree = "<group>"; };
+		3D0CBE8C18CAC6F700B199F3 /* med.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = med.json; sourceTree = "<group>"; };
 		3D39B5FF18C6C91A00EACA08 /* med.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = med.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D39B60218C6C91A00EACA08 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3D39B60518C6C91A00EACA08 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -62,8 +71,6 @@
 		3D39B64218C6CEDB00EACA08 /* MEDMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDMasterViewController.h; sourceTree = "<group>"; };
 		3D39B64318C6CEDB00EACA08 /* MEDMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDMasterViewController.m; sourceTree = "<group>"; };
 		3D39B64918C6CF2700EACA08 /* MEDMasterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEDMasterViewController.xib; sourceTree = "<group>"; };
-		3D8DEAD718C9EC1200C0CE6A /* MEDPipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDPipeline.h; sourceTree = SOURCE_ROOT; };
-		3D8DEAD818C9EC1200C0CE6A /* MEDPipeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDPipeline.m; sourceTree = SOURCE_ROOT; };
 		3DB1736B18C75409003C2117 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -149,6 +156,7 @@
 				3D39B60E18C6C91A00EACA08 /* main.m */,
 				3D39B61018C6C91A00EACA08 /* med-Prefix.pch */,
 				3D39B61118C6C91A00EACA08 /* Credits.rtf */,
+				3D0CBE8C18CAC6F700B199F3 /* med.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -174,8 +182,10 @@
 		3D39B63818C6CB4B00EACA08 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3D8DEAD718C9EC1200C0CE6A /* MEDPipeline.h */,
-				3D8DEAD818C9EC1200C0CE6A /* MEDPipeline.m */,
+				3D0CBE8418CAC55600B199F3 /* MEDConfig.h */,
+				3D0CBE8518CAC55600B199F3 /* MEDConfig.m */,
+				3D0CBE8618CAC55600B199F3 /* MEDPipeline.h */,
+				3D0CBE8718CAC55600B199F3 /* MEDPipeline.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,6 +289,7 @@
 			files = (
 				3D39B60D18C6C91A00EACA08 /* InfoPlist.strings in Resources */,
 				3D39B61B18C6C91A00EACA08 /* Images.xcassets in Resources */,
+				3D0CBE8D18CAC6F700B199F3 /* med.json in Resources */,
 				3D39B64A18C6CF2700EACA08 /* MEDMasterViewController.xib in Resources */,
 				3D39B61318C6C91A00EACA08 /* Credits.rtf in Resources */,
 				3D39B64018C6CCBA00EACA08 /* MainMenu.xib in Resources */,
@@ -291,6 +302,7 @@
 			files = (
 				3D39B62B18C6C91B00EACA08 /* InfoPlist.strings in Resources */,
 				3D39B64B18C6CF2700EACA08 /* MEDMasterViewController.xib in Resources */,
+				3D0CBE8E18CAC6F700B199F3 /* med.json in Resources */,
 				3D39B64118C6CCBA00EACA08 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,9 +314,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D8DEAD918C9EC1200C0CE6A /* MEDPipeline.m in Sources */,
+				3D0CBE8A18CAC55600B199F3 /* MEDPipeline.m in Sources */,
 				3D39B60F18C6C91A00EACA08 /* main.m in Sources */,
 				3D39B64518C6CEDB00EACA08 /* MEDMasterViewController.m in Sources */,
+				3D0CBE8818CAC55600B199F3 /* MEDConfig.m in Sources */,
 				3D39B63D18C6CCA500EACA08 /* MEDAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,9 +326,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D8DEADA18C9EC1200C0CE6A /* MEDPipeline.m in Sources */,
+				3D0CBE8B18CAC55600B199F3 /* MEDPipeline.m in Sources */,
 				3D39B62D18C6C91B00EACA08 /* medTests.m in Sources */,
 				3D39B64618C6CEDB00EACA08 /* MEDMasterViewController.m in Sources */,
+				3D0CBE8918CAC55600B199F3 /* MEDConfig.m in Sources */,
 				3D39B63E18C6CCA500EACA08 /* MEDAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

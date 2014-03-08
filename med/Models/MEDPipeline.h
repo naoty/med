@@ -14,7 +14,6 @@
 
 @property (nonatomic, weak) id <MEDPipelineDelegate> delegate;
 
-- (void)addScript:(NSString *)script;
 - (void)runWithInput:(NSString *)input;
 
 @end
