@@ -1,0 +1,8 @@
+{
+    "path": "/usr/bin:/bin:/usr/sbin:/sbin",
+    "scripts": [],
+    "editor": {
+        "fontName": "Monaco",
+        "fontSize": 12
+    }
+}
