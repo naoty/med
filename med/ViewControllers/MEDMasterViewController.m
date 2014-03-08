@@ -8,11 +8,13 @@
 
 #import <WebKit/WebKit.h>
 #import "MEDMasterViewController.h"
+#import "MEDPipeline.h"
 
-@interface MEDMasterViewController () <NSTextDelegate>
+@interface MEDMasterViewController () <NSTextDelegate, MEDPipelineDelegate>
 @property (nonatomic) IBOutlet NSTextView *editor;
 @property (nonatomic, weak) IBOutlet WebView *webView;
 @property (nonatomic) WebFrame *preview;
+@property (nonatomic) MEDPipeline *pipeline;
 @end
 
 @implementation MEDMasterViewController
@@ -31,6 +33,9 @@
     
     self.editor.font = [NSFont fontWithName:@"Monaco" size:12.0f];
     self.preview = [self.webView mainFrame];
+    
+    self.pipeline = [[MEDPipeline alloc] init];
+    self.pipeline.delegate = self;
 }
 
 #pragma mark - NSTextDelegate
@@ -38,7 +43,14 @@
 - (void)textDidChange:(NSNotification *)notification
 {
     NSString *text = ((NSTextView *)notification.object).string;
-    [self.preview loadHTMLString:text baseURL:nil];
+    [self.pipeline runWithInput:text];
+}
+
+#pragma mark - MEDPipelineDelegate
+
+- (void)pipeline:(MEDPipeline *)pipeline didReceiveStandardOutput:(NSString *)standardOutput
+{
+    [self.preview loadHTMLString:standardOutput baseURL:nil];
 }
 
 @end
