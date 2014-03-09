@@ -21,6 +21,32 @@
     return sharedInstance;
 }
 
+#pragma mark - Singleton pattern
+
+- (id)initSharedInstance
+{
+    self = [super init];
+    if (self) {
+        // Default config
+        NSBundle *bundle = [NSBundle mainBundle];
+        NSString *bundledConfigPath = [bundle pathForResource:@"med" ofType:@"json"];
+        [self loadWithContentOfFile:bundledConfigPath];
+    
+        // User's config
+        NSString *userConfigPath = [@"~/.med.json" stringByExpandingTildeInPath];
+        [self loadWithContentOfFile:userConfigPath];
+    }
+    return self;
+}
+
+- (id)init
+{
+    [self doesNotRecognizeSelector:_cmd];
+    return nil;
+}
+
+#pragma mark - Private methods
+
 - (void)loadWithContentOfFile:(NSString *)path
 {
     NSData *configData = [[NSData alloc] initWithContentsOfFile:path];
@@ -43,22 +69,6 @@
             self.fontSize = (editor[@"fontSize"] == nil) ? self.fontSize : editor[@"fontSize"];
         }
     }
-}
-
-#pragma mark - Singleton pattern
-
-- (id)initSharedInstance
-{
-    self = [super init];
-    if (self) {
-    }
-    return self;
-}
-
-- (id)init
-{
-    [self doesNotRecognizeSelector:_cmd];
-    return nil;
 }
 
 @end

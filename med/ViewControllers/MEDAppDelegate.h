@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface MEDAppDelegate : NSObject <NSApplicationDelegate>
+@interface MEDAppDelegate : NSDocumentController <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 

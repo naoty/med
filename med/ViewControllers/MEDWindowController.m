@@ -1,44 +1,47 @@
 //
-//  MEDMasterViewController.m
+//  MEDWindowController.m
 //  med
 //
-//  Created by naoty on 2014/03/05.
+//  Created by naoty on 2014/03/10.
 //  Copyright (c) 2014年 Naoto Kaneko. All rights reserved.
 //
 
 #import <WebKit/WebKit.h>
-#import "MEDMasterViewController.h"
+#import "MEDWindowController.h"
 #import "MEDPipeline.h"
 #import "MEDConfig.h"
 
-@interface MEDMasterViewController () <NSTextDelegate, MEDPipelineDelegate>
-@property (nonatomic) IBOutlet NSTextView *editor;
+@interface MEDWindowController () <NSTextDelegate, MEDPipelineDelegate>
 @property (nonatomic, weak) IBOutlet WebView *webView;
 @property (nonatomic) WebFrame *preview;
 @property (nonatomic) MEDPipeline *pipeline;
 @end
 
-@implementation MEDMasterViewController
+@implementation MEDWindowController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithWindow:(NSWindow *)window
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithWindow:window];
     if (self) {
     }
     return self;
 }
 
-- (void)loadView
+- (void)windowDidLoad
 {
-    [super loadView];
+    [super windowDidLoad];
     
     MEDConfig *config = [MEDConfig sharedConfig];
     
     self.editor.font = [NSFont fontWithName:config.fontName size:[config.fontSize floatValue]];
     self.preview = [self.webView mainFrame];
-    
     self.pipeline = [[MEDPipeline alloc] init];
     self.pipeline.delegate = self;
+}
+
+- (void)showWindow:(id)sender
+{
+    [self.window makeKeyAndOrderFront:sender];
 }
 
 #pragma mark - NSTextDelegate

@@ -16,6 +16,5 @@
 @property (nonatomic) NSNumber *fontSize;
 
 + (id)sharedConfig;
-- (void)loadWithContentOfFile:(NSString *)path;
 
 @end
