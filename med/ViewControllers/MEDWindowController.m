@@ -56,6 +56,7 @@
 - (void)textDidChange:(NSNotification *)notification
 {
     NSString *text = ((NSTextView *)notification.object).string;
+    ((MEDDocument *)self.document).text = text;
     [self.pipeline runWithInput:text];
 }
 
