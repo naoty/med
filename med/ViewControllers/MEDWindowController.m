@@ -8,6 +8,7 @@
 
 #import <WebKit/WebKit.h>
 #import "MEDWindowController.h"
+#import "MEDDocument.h"
 #import "MEDPipeline.h"
 #import "MEDConfig.h"
 
@@ -37,6 +38,12 @@
     self.preview = [self.webView mainFrame];
     self.pipeline = [[MEDPipeline alloc] init];
     self.pipeline.delegate = self;
+    
+    MEDDocument *document = (MEDDocument *)self.document;
+    if (document.text != nil) {
+        self.editor.string = ((MEDDocument *)self.document).text;
+        [self.pipeline runWithInput:self.editor.string];
+    }
 }
 
 - (void)showWindow:(id)sender

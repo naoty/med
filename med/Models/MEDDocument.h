@@ -9,5 +9,5 @@
 #import <Cocoa/Cocoa.h>
 
 @interface MEDDocument : NSDocument
-
+@property (nonatomic, copy) NSString *text;
 @end
