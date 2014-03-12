@@ -72,7 +72,9 @@
                                     <webView id="pzp-iy-R2d">
                                         <rect key="frame" x="0.0" y="0.0" width="237" height="280"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12"/>
+                                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12">
+                                            <nil key="identifier"/>
+                                        </webPreferences>
                                     </webView>
                                 </subviews>
                             </customView>

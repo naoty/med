@@ -16,6 +16,7 @@
 @property (nonatomic, weak) IBOutlet WebView *webView;
 @property (nonatomic) WebFrame *preview;
 @property (nonatomic) MEDPipeline *pipeline;
+@property (nonatomic, copy) NSString *layoutHTML;
 @end
 
 @implementation MEDWindowController
@@ -24,6 +25,9 @@
 {
     self = [super initWithWindow:window];
     if (self) {
+        // Layout of webview
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"layout" ofType:@"html"];
+        self.layoutHTML = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     }
     return self;
 }
@@ -38,6 +42,10 @@
     self.preview = [self.webView mainFrame];
     self.pipeline = [[MEDPipeline alloc] init];
     self.pipeline.delegate = self;
+    
+    // Enable web inspector
+    [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"WebKitDeveloperExtras"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     MEDDocument *document = (MEDDocument *)self.document;
     if (document.text != nil) {
@@ -64,7 +72,9 @@
 
 - (void)pipeline:(MEDPipeline *)pipeline didReceiveStandardOutput:(NSString *)standardOutput
 {
-    [self.preview loadHTMLString:standardOutput baseURL:nil];
+    NSString *trimmedOutput = [standardOutput stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *html = [NSString stringWithFormat:self.layoutHTML, trimmedOutput];
+    [self.preview loadHTMLString:html baseURL:[[NSBundle mainBundle] resourceURL]];
 }
 
 @end
