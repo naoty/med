@@ -646,7 +646,11 @@
                 </menuItem>
             </items>
         </menu>
-        <customObject id="494" customClass="MEDAppDelegate"/>
+        <customObject id="494" customClass="MEDAppDelegate">
+            <connections>
+                <outlet property="viewMenu" destination="296" id="Br3-CP-EkO"/>
+            </connections>
+        </customObject>
         <customObject id="420" customClass="NSFontManager"/>
     </objects>
 </document>

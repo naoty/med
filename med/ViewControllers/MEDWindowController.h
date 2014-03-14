@@ -10,4 +10,5 @@
 
 @interface MEDWindowController : NSWindowController
 @property (nonatomic) IBOutlet NSTextView *editor;
+- (void)changePreviewStylesheetAtPath:(NSString *)path;
 @end

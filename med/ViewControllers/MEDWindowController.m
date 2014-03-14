@@ -13,10 +13,16 @@
 #import "MEDConfig.h"
 
 @interface MEDWindowController () <NSTextDelegate, MEDPipelineDelegate>
+
 @property (nonatomic, weak) IBOutlet WebView *webView;
 @property (nonatomic) WebFrame *preview;
 @property (nonatomic) MEDPipeline *pipeline;
-@property (nonatomic, copy) NSString *layoutHTML;
+
+// HTML
+@property (nonatomic, copy) NSString *layout;
+@property (nonatomic, copy) NSString *style;
+@property (nonatomic, copy) NSString *body;
+
 @end
 
 @implementation MEDWindowController
@@ -27,7 +33,9 @@
     if (self) {
         // Layout of webview
         NSString *path = [[NSBundle mainBundle] pathForResource:@"layout" ofType:@"html"];
-        self.layoutHTML = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        self.layout = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        self.style = @"";
+        self.body = @"";
     }
     return self;
 }
@@ -59,12 +67,26 @@
     [self.window makeKeyAndOrderFront:sender];
 }
 
+- (void)changePreviewStylesheetAtPath:(NSString *)path
+{
+    self.style = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    [self loadPreview];
+}
+
+#pragma mark - Private methods
+
+- (void)loadPreview
+{
+    NSString *html = [NSString stringWithFormat:self.layout, self.style, self.body];
+    [self.preview loadHTMLString:html baseURL:[[NSBundle mainBundle] resourceURL]];
+}
+
 #pragma mark - NSTextDelegate
 
 - (void)textDidChange:(NSNotification *)notification
 {
     NSString *text = ((NSTextView *)notification.object).string;
-    ((MEDDocument *)self.document).text = text;
+    ((MEDDocument *) self.document).text = text;
     [self.pipeline runWithInput:text];
 }
 
@@ -72,9 +94,8 @@
 
 - (void)pipeline:(MEDPipeline *)pipeline didReceiveStandardOutput:(NSString *)standardOutput
 {
-    NSString *trimmedOutput = [standardOutput stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *html = [NSString stringWithFormat:self.layoutHTML, trimmedOutput];
-    [self.preview loadHTMLString:html baseURL:[[NSBundle mainBundle] resourceURL]];
+    self.body = [standardOutput stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    [self loadPreview];
 }
 
 @end

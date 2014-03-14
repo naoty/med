@@ -11,5 +11,6 @@
 @interface MEDAppDelegate : NSDocumentController <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (nonatomic) IBOutlet NSMenu *viewMenu;
 
 @end

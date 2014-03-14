@@ -15,6 +15,8 @@
 @property (nonatomic, copy) NSString *fontName;
 @property (nonatomic) NSNumber *fontSize;
 
+@property (nonatomic) NSMutableArray *stylesheetPaths;
+
 + (id)sharedConfig;
 
 @end

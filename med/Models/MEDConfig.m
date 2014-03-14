@@ -35,6 +35,10 @@
         // User's config
         NSString *userConfigPath = [@"~/.med.json" stringByExpandingTildeInPath];
         [self loadWithContentOfFile:userConfigPath];
+        
+        // Stylesheets
+        NSString *stylesheetsDirectoryPath = [@"~/.med/stylesheets" stringByExpandingTildeInPath];
+        [self loadStylesheetPathsOfDirectoryAtPath:stylesheetsDirectoryPath];
     }
     return self;
 }
@@ -68,6 +72,16 @@
             self.fontName = (editor[@"fontName"] == nil) ? self.fontName : editor[@"fontName"];
             self.fontSize = (editor[@"fontSize"] == nil) ? self.fontSize : editor[@"fontSize"];
         }
+    }
+}
+
+- (void)loadStylesheetPathsOfDirectoryAtPath:(NSString *)path
+{
+    self.stylesheetPaths = [NSMutableArray array];
+    NSArray *filenames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
+    for (NSString *filename in filenames) {
+        NSString *fullPath = [NSString stringWithFormat:@"%@/%@", path, filename];
+        [self.stylesheetPaths addObject:fullPath];
     }
 }
 
