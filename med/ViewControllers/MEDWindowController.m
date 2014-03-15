@@ -47,6 +47,7 @@
     MEDConfig *config = [MEDConfig sharedConfig];
     
     self.editor.font = [NSFont fontWithName:config.fontName size:[config.fontSize floatValue]];
+    self.webView.frameLoadDelegate = self;
     self.preview = [self.webView mainFrame];
     self.pipeline = [[MEDPipeline alloc] init];
     self.pipeline.delegate = self;
@@ -88,6 +89,15 @@
     NSString *text = ((NSTextView *)notification.object).string;
     ((MEDDocument *) self.document).text = text;
     [self.pipeline runWithInput:text];
+}
+
+#pragma mark - WebFrameLoadDelegate
+
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
+{
+    // Disable horizontal scroll on preview
+    NSScrollView *scrollView = sender.mainFrame.frameView.documentView.enclosingScrollView;
+    scrollView.horizontalScrollElasticity = NSScrollElasticityNone;
 }
 
 #pragma mark - MEDPipelineDelegate
