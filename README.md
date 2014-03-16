@@ -1,22 +1,26 @@
 # med
-markdown stream editor for OSX.
 
-This editor applies any defined filters to input texts. So, you can use favorite markdown parsers for this editor.
+Med is a markdown stream editor for OSX. This editor applies any defined filters to input texts. So, you can use favorite markdown parsers for this editor.
 
 ## Usage
-This editor applies defined filters to input texts with UNIX pipes. You can define filter scripts at `~/.med.json` like below.
+
+Med applies filters to texts through UNIX pipes. The filters are required that they can input texts from standard-input and output the result to standard-output. You can define filters at `~/.med.json` like below.
 
 ```json
 {
     "path": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin",
     "scripts": [
-        "hoedown"
+        "marked"
     ],
     "editor": {
         "fontName": "Monaco",
-        "fontSize": 12.0
+        "fontSize": 12
     }
 }
 ```
 
 Your config overrides a default config `med.app/Contents/Resources/med.json`.
+
+### Stylesheet for preview
+
+You can change a stylesheet for preview from menu. Stylesheets at `~/.med/stylesheets/` can be selected from `View > Preview Stylesheets` menu. Also, a default stylesheet, `github.css`, can be selected from the menu.

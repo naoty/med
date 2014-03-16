@@ -29,6 +29,7 @@
 		3D39B63E18C6CCA500EACA08 /* MEDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B63C18C6CCA500EACA08 /* MEDAppDelegate.m */; };
 		3D39B64018C6CCBA00EACA08 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D39B63F18C6CCBA00EACA08 /* MainMenu.xib */; };
 		3D39B64118C6CCBA00EACA08 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D39B63F18C6CCBA00EACA08 /* MainMenu.xib */; };
+		3D4453DB18D4C0B7008DABAC /* github.css in Resources */ = {isa = PBXBuildFile; fileRef = 3D4453DA18D4C0B7008DABAC /* github.css */; };
 		3D6FFFC018CF4B9100E3ABAE /* layout.html in Resources */ = {isa = PBXBuildFile; fileRef = 3D6FFFBF18CF4B9100E3ABAE /* layout.html */; };
 		3D6FFFC218CF4CD700E3ABAE /* normalize.css in Resources */ = {isa = PBXBuildFile; fileRef = 3D6FFFC118CF4CD700E3ABAE /* normalize.css */; };
 		3DB1736C18C75409003C2117 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB1736B18C75409003C2117 /* WebKit.framework */; };
@@ -74,6 +75,7 @@
 		3D39B63B18C6CCA500EACA08 /* MEDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDAppDelegate.h; sourceTree = "<group>"; };
 		3D39B63C18C6CCA500EACA08 /* MEDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDAppDelegate.m; sourceTree = "<group>"; };
 		3D39B63F18C6CCBA00EACA08 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		3D4453DA18D4C0B7008DABAC /* github.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = github.css; sourceTree = "<group>"; };
 		3D6FFFBF18CF4B9100E3ABAE /* layout.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = layout.html; sourceTree = "<group>"; };
 		3D6FFFC118CF4CD700E3ABAE /* normalize.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = normalize.css; sourceTree = "<group>"; };
 		3DB1736B18C75409003C2117 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -164,6 +166,7 @@
 				3D0CBE8C18CAC6F700B199F3 /* med.json */,
 				3D6FFFBF18CF4B9100E3ABAE /* layout.html */,
 				3D6FFFC118CF4CD700E3ABAE /* normalize.css */,
+				3D4453DA18D4C0B7008DABAC /* github.css */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				3D18D41918CCBA7300C1E76D /* MEDWindow.xib in Resources */,
 				3D39B61318C6C91A00EACA08 /* Credits.rtf in Resources */,
 				3D6FFFC218CF4CD700E3ABAE /* normalize.css in Resources */,
+				3D4453DB18D4C0B7008DABAC /* github.css in Resources */,
 				3D39B64018C6CCBA00EACA08 /* MainMenu.xib in Resources */,
 				3D6FFFC018CF4B9100E3ABAE /* layout.html in Resources */,
 			);

@@ -27,29 +27,41 @@
 
 - (void)addStylesheetMenu
 {
-    NSArray *stylesheetPaths = self.config.stylesheetPaths;
-    if (stylesheetPaths.count > 0) {
-        NSMenuItem *stylesheetsMenuItem = [[NSMenuItem alloc] initWithTitle:@"Preview Stylesheets" action:nil keyEquivalent:@""];
-        self.stylesheetsSubMenu = [[NSMenu alloc] init];
-        stylesheetsMenuItem.submenu = self.stylesheetsSubMenu;
-        for (NSString *stylesheetPath in stylesheetPaths) {
+    self.stylesheetsSubMenu = [[NSMenu alloc] init];
+    
+    // Default stylesheets
+    for (NSString *stylesheetPath in self.config.defaultStylesheetPaths) {
+        NSString *filename = [stylesheetPath lastPathComponent];
+        [self.stylesheetsSubMenu addItemWithTitle:filename action:@selector(didDefaultStylesheetMenuItemSelected:) keyEquivalent:@""];
+    }
+    
+    // User's stylesheets
+    if (self.config.userStylesheetPaths.count > 0) {
+        [self.stylesheetsSubMenu addItem:[NSMenuItem separatorItem]];
+        for (NSString *stylesheetPath in self.config.userStylesheetPaths) {
             NSString *filename = [stylesheetPath lastPathComponent];
             [self.stylesheetsSubMenu addItemWithTitle:filename action:@selector(didStylesheetMenuItemSelected:) keyEquivalent:@""];
         }
-        [self.viewMenu insertItem:stylesheetsMenuItem atIndex:0];
-        [self.viewMenu insertItem:[NSMenuItem separatorItem] atIndex:1];
     }
+    
+    self.stylesheetsMenuItem.submenu = self.stylesheetsSubMenu;
+}
+
+- (void)didDefaultStylesheetMenuItemSelected:(id)sender
+{
+    NSMenuItem *selectedMenuItem = (NSMenuItem *) sender;
+    NSString *stylesheetPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:selectedMenuItem.title];
+    
+    NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
+    MEDWindowController *windowController = (MEDWindowController *) mainWindow.windowController;
+    [windowController changePreviewStylesheetAtPath:stylesheetPath];
 }
 
 - (void)didStylesheetMenuItemSelected:(id)sender
 {
-    NSMenuItem *selectedMenuItem = (NSMenuItem *)sender;
-    
-    for (NSMenuItem *menuItem in self.stylesheetsSubMenu.itemArray) {
-        menuItem.state = (selectedMenuItem == menuItem) ? NSOnState : NSOffState;
-    }
-    
+    NSMenuItem *selectedMenuItem = (NSMenuItem *) sender;
     NSString *stylesheetPath = [[@"~/.med/stylesheets" stringByAppendingPathComponent:selectedMenuItem.title] stringByExpandingTildeInPath];
+    
     NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
     MEDWindowController *windowController = (MEDWindowController *) mainWindow.windowController;
     [windowController changePreviewStylesheetAtPath:stylesheetPath];

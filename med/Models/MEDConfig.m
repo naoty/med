@@ -36,9 +36,22 @@
         NSString *userConfigPath = [@"~/.med.json" stringByExpandingTildeInPath];
         [self loadWithContentOfFile:userConfigPath];
         
-        // Stylesheets
-        NSString *stylesheetsDirectoryPath = [@"~/.med/stylesheets" stringByExpandingTildeInPath];
-        [self loadStylesheetPathsOfDirectoryAtPath:stylesheetsDirectoryPath];
+        // Default stylesheet
+        self.defaultStylesheetPaths = [NSMutableArray array];
+        NSString *defaultStylesheetPath = [bundle pathForResource:@"github" ofType:@"css"];
+        [self.defaultStylesheetPaths addObject:defaultStylesheetPath];
+        
+        // User's stylesheets
+        self.userStylesheetPaths = [NSMutableArray array];
+        NSString *userStylesheetsDirectoryPath = [@"~/.med/stylesheets" stringByExpandingTildeInPath];
+        NSArray *filenames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:userStylesheetsDirectoryPath error:nil];
+        for (NSString *filename in filenames) {
+            NSString *extension = [filename pathExtension];
+            if ([extension isEqualToString:@"css"]) {
+                NSString *fullPath = [userStylesheetsDirectoryPath stringByAppendingPathComponent:filename];
+                [self.userStylesheetPaths addObject:fullPath];
+            }
+        }
     }
     return self;
 }
@@ -72,16 +85,6 @@
             self.fontName = (editor[@"fontName"] == nil) ? self.fontName : editor[@"fontName"];
             self.fontSize = (editor[@"fontSize"] == nil) ? self.fontSize : editor[@"fontSize"];
         }
-    }
-}
-
-- (void)loadStylesheetPathsOfDirectoryAtPath:(NSString *)path
-{
-    self.stylesheetPaths = [NSMutableArray array];
-    NSArray *filenames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
-    for (NSString *filename in filenames) {
-        NSString *fullPath = [NSString stringWithFormat:@"%@/%@", path, filename];
-        [self.stylesheetPaths addObject:fullPath];
     }
 }
 

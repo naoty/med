@@ -31,10 +31,13 @@
 {
     self = [super initWithWindow:window];
     if (self) {
-        // Layout of webview
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"layout" ofType:@"html"];
-        self.layout = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-        self.style = @"";
+        NSString *layoutPath = [[NSBundle mainBundle] pathForResource:@"layout" ofType:@"html"];
+        self.layout = [NSString stringWithContentsOfFile:layoutPath encoding:NSUTF8StringEncoding error:nil];
+        
+        MEDConfig *config = [MEDConfig sharedConfig];
+        NSString *stylesheetPath = config.defaultStylesheetPaths[0];
+        self.style = [NSString stringWithContentsOfFile:stylesheetPath encoding:NSUTF8StringEncoding error:nil];
+        
         self.body = @"";
     }
     return self;
@@ -47,7 +50,8 @@
     MEDConfig *config = [MEDConfig sharedConfig];
     
     self.editor.font = [NSFont fontWithName:config.fontName size:[config.fontSize floatValue]];
-    self.webView.frameLoadDelegate = self;
+    self.editor.automaticQuoteSubstitutionEnabled = NO;
+    
     self.preview = [self.webView mainFrame];
     self.pipeline = [[MEDPipeline alloc] init];
     self.pipeline.delegate = self;
@@ -89,15 +93,6 @@
     NSString *text = ((NSTextView *)notification.object).string;
     ((MEDDocument *) self.document).text = text;
     [self.pipeline runWithInput:text];
-}
-
-#pragma mark - WebFrameLoadDelegate
-
-- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
-{
-    // Disable horizontal scroll on preview
-    NSScrollView *scrollView = sender.mainFrame.frameView.documentView.enclosingScrollView;
-    scrollView.horizontalScrollElasticity = NSScrollElasticityNone;
 }
 
 #pragma mark - MEDPipelineDelegate
