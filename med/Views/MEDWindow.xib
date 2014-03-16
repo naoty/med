@@ -32,7 +32,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="485" height="560"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="Ta3-QR-52v">
+                                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" id="Ta3-QR-52v">
                                         <rect key="frame" x="0.0" y="0.0" width="485" height="560"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <clipView key="contentView" id="5OF-QQ-524">
@@ -43,10 +43,10 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="485" height="560"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <size key="minSize" width="485" height="560"/>
+                                                    <size key="minSize" width="469" height="560"/>
                                                     <size key="maxSize" width="722" height="10000000"/>
                                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <size key="minSize" width="485" height="560"/>
+                                                    <size key="minSize" width="469" height="560"/>
                                                     <size key="maxSize" width="722" height="10000000"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="-2" id="SJn-qe-STh"/>
@@ -59,7 +59,7 @@
                                             <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="gKf-8P-4dG">
+                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="gKf-8P-4dG">
                                             <rect key="frame" x="469" y="0.0" width="16" height="560"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>

@@ -14,9 +14,12 @@
 
 @interface MEDWindowController () <NSTextDelegate, MEDPipelineDelegate>
 
+@property (nonatomic) MEDPipeline *pipeline;
 @property (nonatomic, weak) IBOutlet WebView *webView;
 @property (nonatomic) WebFrame *preview;
-@property (nonatomic) MEDPipeline *pipeline;
+
+// Use to restore scroll position after reloading
+@property (nonatomic) CGPoint savedPreviewScrollPosition;
 
 // HTML
 @property (nonatomic, copy) NSString *layout;
@@ -50,8 +53,10 @@
     MEDConfig *config = [MEDConfig sharedConfig];
     
     self.editor.font = [NSFont fontWithName:config.fontName size:[config.fontSize floatValue]];
+    self.editor.textContainerInset = NSMakeSize(10.0f, 20.0f);
     self.editor.automaticQuoteSubstitutionEnabled = NO;
     
+    self.webView.frameLoadDelegate = self;
     self.preview = [self.webView mainFrame];
     self.pipeline = [[MEDPipeline alloc] init];
     self.pipeline.delegate = self;
@@ -83,7 +88,21 @@
 - (void)loadPreview
 {
     NSString *html = [NSString stringWithFormat:self.layout, self.style, self.body];
+    [self rememberPreviewScrollPosition];
     [self.preview loadHTMLString:html baseURL:[[NSBundle mainBundle] resourceURL]];
+}
+
+- (void)rememberPreviewScrollPosition
+{
+    NSScrollView *scrollView = self.preview.frameView.documentView.enclosingScrollView;
+    if (scrollView) {
+        NSRect currentRect = scrollView.documentVisibleRect;
+        if (currentRect.origin.y > 0) {
+            self.savedPreviewScrollPosition = currentRect.origin;
+        } else {
+            self.savedPreviewScrollPosition = NSZeroPoint;
+        }
+    }
 }
 
 #pragma mark - NSTextDelegate
@@ -93,6 +112,14 @@
     NSString *text = ((NSTextView *)notification.object).string;
     ((MEDDocument *) self.document).text = text;
     [self.pipeline runWithInput:text];
+}
+
+#pragma mark - WebFrameLoadDelegate
+
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
+{
+    [self.preview.frameView.documentView scrollPoint:NSMakePoint(0, self.savedPreviewScrollPosition.y)];
+    self.savedPreviewScrollPosition = NSZeroPoint;
 }
 
 #pragma mark - MEDPipelineDelegate
