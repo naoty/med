@@ -11,15 +11,10 @@
 		3D0CBE8918CAC55600B199F3 /* MEDConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CBE8518CAC55600B199F3 /* MEDConfig.m */; };
 		3D0CBE8A18CAC55600B199F3 /* MEDPipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CBE8718CAC55600B199F3 /* MEDPipeline.m */; };
 		3D0CBE8B18CAC55600B199F3 /* MEDPipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D0CBE8718CAC55600B199F3 /* MEDPipeline.m */; };
-		3D0CBE8D18CAC6F700B199F3 /* med.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D0CBE8C18CAC6F700B199F3 /* med.json */; };
-		3D0CBE8E18CAC6F700B199F3 /* med.json in Resources */ = {isa = PBXBuildFile; fileRef = 3D0CBE8C18CAC6F700B199F3 /* med.json */; };
 		3D18D41118CCB5F000C1E76D /* MEDDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D18D40F18CCB5F000C1E76D /* MEDDocument.m */; };
 		3D18D41518CCB9CC00C1E76D /* MEDWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D18D41418CCB9CC00C1E76D /* MEDWindowController.m */; };
 		3D18D41918CCBA7300C1E76D /* MEDWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D18D41818CCBA7300C1E76D /* MEDWindow.xib */; };
 		3D39B60318C6C91A00EACA08 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D39B60218C6C91A00EACA08 /* Cocoa.framework */; };
-		3D39B60D18C6C91A00EACA08 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D39B60B18C6C91A00EACA08 /* InfoPlist.strings */; };
-		3D39B60F18C6C91A00EACA08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B60E18C6C91A00EACA08 /* main.m */; };
-		3D39B61318C6C91A00EACA08 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3D39B61118C6C91A00EACA08 /* Credits.rtf */; };
 		3D39B61B18C6C91A00EACA08 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D39B61A18C6C91A00EACA08 /* Images.xcassets */; };
 		3D39B62218C6C91A00EACA08 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D39B62118C6C91A00EACA08 /* XCTest.framework */; };
 		3D39B62318C6C91A00EACA08 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D39B60218C6C91A00EACA08 /* Cocoa.framework */; };
@@ -29,9 +24,15 @@
 		3D39B63E18C6CCA500EACA08 /* MEDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B63C18C6CCA500EACA08 /* MEDAppDelegate.m */; };
 		3D39B64018C6CCBA00EACA08 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D39B63F18C6CCBA00EACA08 /* MainMenu.xib */; };
 		3D39B64118C6CCBA00EACA08 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D39B63F18C6CCBA00EACA08 /* MainMenu.xib */; };
-		3D4453DB18D4C0B7008DABAC /* github.css in Resources */ = {isa = PBXBuildFile; fileRef = 3D4453DA18D4C0B7008DABAC /* github.css */; };
-		3D6FFFC018CF4B9100E3ABAE /* layout.html in Resources */ = {isa = PBXBuildFile; fileRef = 3D6FFFBF18CF4B9100E3ABAE /* layout.html */; };
-		3D6FFFC218CF4CD700E3ABAE /* normalize.css in Resources */ = {isa = PBXBuildFile; fileRef = 3D6FFFC118CF4CD700E3ABAE /* normalize.css */; };
+		3DA38A3F18DC82810025D45E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3218DC82810025D45E /* Credits.rtf */; };
+		3DA38A4018DC82810025D45E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3418DC82810025D45E /* InfoPlist.strings */; };
+		3DA38A4118DC82810025D45E /* layout.html in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3618DC82810025D45E /* layout.html */; };
+		3DA38A4218DC82810025D45E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA38A3718DC82810025D45E /* main.m */; };
+		3DA38A4318DC82810025D45E /* med-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3818DC82810025D45E /* med-Info.plist */; };
+		3DA38A4418DC82810025D45E /* med.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3A18DC82810025D45E /* med.json */; };
+		3DA38A4518DC82810025D45E /* github.css in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3C18DC82810025D45E /* github.css */; };
+		3DA38A4618DC82810025D45E /* normalize.css in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3E18DC82810025D45E /* normalize.css */; };
+		3DA38A4818DC842E0025D45E /* dirty-shade.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A4718DC842E0025D45E /* dirty-shade.png */; };
 		3DB1736C18C75409003C2117 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB1736B18C75409003C2117 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +51,6 @@
 		3D0CBE8518CAC55600B199F3 /* MEDConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDConfig.m; sourceTree = "<group>"; };
 		3D0CBE8618CAC55600B199F3 /* MEDPipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDPipeline.h; sourceTree = "<group>"; };
 		3D0CBE8718CAC55600B199F3 /* MEDPipeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDPipeline.m; sourceTree = "<group>"; };
-		3D0CBE8C18CAC6F700B199F3 /* med.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = med.json; sourceTree = "<group>"; };
 		3D18D40E18CCB5F000C1E76D /* MEDDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDDocument.h; sourceTree = "<group>"; };
 		3D18D40F18CCB5F000C1E76D /* MEDDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDDocument.m; sourceTree = "<group>"; };
 		3D18D41318CCB9CC00C1E76D /* MEDWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDWindowController.h; sourceTree = "<group>"; };
@@ -61,11 +61,6 @@
 		3D39B60518C6C91A00EACA08 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		3D39B60618C6C91A00EACA08 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3D39B60718C6C91A00EACA08 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3D39B60A18C6C91A00EACA08 /* med-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "med-Info.plist"; sourceTree = "<group>"; };
-		3D39B60C18C6C91A00EACA08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3D39B60E18C6C91A00EACA08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3D39B61018C6C91A00EACA08 /* med-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "med-Prefix.pch"; sourceTree = "<group>"; };
-		3D39B61218C6C91A00EACA08 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		3D39B61A18C6C91A00EACA08 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3D39B62018C6C91A00EACA08 /* medTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = medTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D39B62118C6C91A00EACA08 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -75,9 +70,16 @@
 		3D39B63B18C6CCA500EACA08 /* MEDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDAppDelegate.h; sourceTree = "<group>"; };
 		3D39B63C18C6CCA500EACA08 /* MEDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDAppDelegate.m; sourceTree = "<group>"; };
 		3D39B63F18C6CCBA00EACA08 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		3D4453DA18D4C0B7008DABAC /* github.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = github.css; sourceTree = "<group>"; };
-		3D6FFFBF18CF4B9100E3ABAE /* layout.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = layout.html; sourceTree = "<group>"; };
-		3D6FFFC118CF4CD700E3ABAE /* normalize.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = normalize.css; sourceTree = "<group>"; };
+		3DA38A3318DC82810025D45E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = Credits.rtf; sourceTree = "<group>"; };
+		3DA38A3518DC82810025D45E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		3DA38A3618DC82810025D45E /* layout.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = layout.html; sourceTree = "<group>"; };
+		3DA38A3718DC82810025D45E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3DA38A3818DC82810025D45E /* med-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "med-Info.plist"; sourceTree = "<group>"; };
+		3DA38A3918DC82810025D45E /* med-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "med-Prefix.pch"; sourceTree = "<group>"; };
+		3DA38A3A18DC82810025D45E /* med.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = med.json; sourceTree = "<group>"; };
+		3DA38A3C18DC82810025D45E /* github.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = github.css; sourceTree = "<group>"; };
+		3DA38A3E18DC82810025D45E /* normalize.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = normalize.css; sourceTree = "<group>"; };
+		3DA38A4718DC842E0025D45E /* dirty-shade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dirty-shade.png"; sourceTree = "<group>"; };
 		3DB1736B18C75409003C2117 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -158,17 +160,16 @@
 		3D39B60918C6C91A00EACA08 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3D39B60A18C6C91A00EACA08 /* med-Info.plist */,
-				3D39B60B18C6C91A00EACA08 /* InfoPlist.strings */,
-				3D39B60E18C6C91A00EACA08 /* main.m */,
-				3D39B61018C6C91A00EACA08 /* med-Prefix.pch */,
-				3D39B61118C6C91A00EACA08 /* Credits.rtf */,
-				3D0CBE8C18CAC6F700B199F3 /* med.json */,
-				3D6FFFBF18CF4B9100E3ABAE /* layout.html */,
-				3D6FFFC118CF4CD700E3ABAE /* normalize.css */,
-				3D4453DA18D4C0B7008DABAC /* github.css */,
+				3DA38A3118DC82810025D45E /* en.lproj */,
+				3DA38A3618DC82810025D45E /* layout.html */,
+				3DA38A3718DC82810025D45E /* main.m */,
+				3DA38A3818DC82810025D45E /* med-Info.plist */,
+				3DA38A3918DC82810025D45E /* med-Prefix.pch */,
+				3DA38A3A18DC82810025D45E /* med.json */,
+				3DA38A3B18DC82810025D45E /* stylesheets */,
 			);
 			name = "Supporting Files";
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		3D39B62618C6C91A00EACA08 /* medTests */ = {
@@ -220,6 +221,33 @@
 				3D18D41818CCBA7300C1E76D /* MEDWindow.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3DA38A3118DC82810025D45E /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				3DA38A3218DC82810025D45E /* Credits.rtf */,
+				3DA38A3418DC82810025D45E /* InfoPlist.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		3DA38A3B18DC82810025D45E /* stylesheets */ = {
+			isa = PBXGroup;
+			children = (
+				3DA38A3C18DC82810025D45E /* github.css */,
+				3DA38A3D18DC82810025D45E /* images */,
+				3DA38A3E18DC82810025D45E /* normalize.css */,
+			);
+			path = stylesheets;
+			sourceTree = "<group>";
+		};
+		3DA38A3D18DC82810025D45E /* images */ = {
+			isa = PBXGroup;
+			children = (
+				3DA38A4718DC842E0025D45E /* dirty-shade.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,15 +327,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D39B60D18C6C91A00EACA08 /* InfoPlist.strings in Resources */,
+				3DA38A4818DC842E0025D45E /* dirty-shade.png in Resources */,
 				3D39B61B18C6C91A00EACA08 /* Images.xcassets in Resources */,
-				3D0CBE8D18CAC6F700B199F3 /* med.json in Resources */,
+				3DA38A4618DC82810025D45E /* normalize.css in Resources */,
+				3DA38A4318DC82810025D45E /* med-Info.plist in Resources */,
 				3D18D41918CCBA7300C1E76D /* MEDWindow.xib in Resources */,
-				3D39B61318C6C91A00EACA08 /* Credits.rtf in Resources */,
-				3D6FFFC218CF4CD700E3ABAE /* normalize.css in Resources */,
-				3D4453DB18D4C0B7008DABAC /* github.css in Resources */,
+				3DA38A4118DC82810025D45E /* layout.html in Resources */,
 				3D39B64018C6CCBA00EACA08 /* MainMenu.xib in Resources */,
-				3D6FFFC018CF4B9100E3ABAE /* layout.html in Resources */,
+				3DA38A3F18DC82810025D45E /* Credits.rtf in Resources */,
+				3DA38A4518DC82810025D45E /* github.css in Resources */,
+				3DA38A4418DC82810025D45E /* med.json in Resources */,
+				3DA38A4018DC82810025D45E /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +346,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D39B62B18C6C91B00EACA08 /* InfoPlist.strings in Resources */,
-				3D0CBE8E18CAC6F700B199F3 /* med.json in Resources */,
 				3D39B64118C6CCBA00EACA08 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,9 +359,9 @@
 			files = (
 				3D0CBE8A18CAC55600B199F3 /* MEDPipeline.m in Sources */,
 				3D18D41518CCB9CC00C1E76D /* MEDWindowController.m in Sources */,
-				3D39B60F18C6C91A00EACA08 /* main.m in Sources */,
 				3D0CBE8818CAC55600B199F3 /* MEDConfig.m in Sources */,
 				3D39B63D18C6CCA500EACA08 /* MEDAppDelegate.m in Sources */,
+				3DA38A4218DC82810025D45E /* main.m in Sources */,
 				3D18D41118CCB5F000C1E76D /* MEDDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,26 +388,26 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3D39B60B18C6C91A00EACA08 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D39B60C18C6C91A00EACA08 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		3D39B61118C6C91A00EACA08 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D39B61218C6C91A00EACA08 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
 		3D39B62918C6C91B00EACA08 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3D39B62A18C6C91B00EACA08 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3DA38A3218DC82810025D45E /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DA38A3318DC82810025D45E /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		3DA38A3418DC82810025D45E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DA38A3518DC82810025D45E /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -460,8 +489,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "med/med-Prefix.pch";
-				INFOPLIST_FILE = "med/med-Info.plist";
+				GCC_PREFIX_HEADER = "med/SupportingFiles/med-Prefix.pch";
+				INFOPLIST_FILE = "med/SupportingFiles/med-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -474,8 +503,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "med/med-Prefix.pch";
-				INFOPLIST_FILE = "med/med-Info.plist";
+				GCC_PREFIX_HEADER = "med/SupportingFiles/med-Prefix.pch";
+				INFOPLIST_FILE = "med/SupportingFiles/med-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

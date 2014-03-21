@@ -99,3 +99,18 @@ pre > code {
   white-space: pre;
   border: 0 none;
 }
+
+blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+hr {
+  height: 4px;
+  padding: 0;
+  margin: 15px 0;
+  color: #ccc;
+  background: url("dirty-shade.png");
+  border: 0 none;
+}

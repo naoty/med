@@ -54,6 +54,7 @@
     
     self.editor.font = [NSFont fontWithName:config.fontName size:[config.fontSize floatValue]];
     self.editor.automaticQuoteSubstitutionEnabled = NO;
+    self.editor.automaticDashSubstitutionEnabled = NO;
     
     self.preview = [self.webView mainFrame];
     self.pipeline = [[MEDPipeline alloc] init];
