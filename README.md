@@ -21,6 +21,10 @@ Med applies filters to texts through UNIX pipes. The filters are required that t
 
 Your config overrides a default config `med.app/Contents/Resources/med.json`.
 
+### med-scripts
+
+I provide [med-scripts](https://github.com/naoty/med-scripts) for easy start. This repository includes markdown parser, emoji parser and so on.
+
 ### Stylesheet for preview
 
 You can change a stylesheet for preview from menu. Stylesheets at `~/.med/stylesheets/` can be selected from `View > Preview Stylesheets` menu. Also, a default stylesheet, `github.css`, can be selected from the menu.
