@@ -53,10 +53,8 @@
     MEDConfig *config = [MEDConfig sharedConfig];
     
     self.editor.font = [NSFont fontWithName:config.fontName size:[config.fontSize floatValue]];
-    self.editor.textContainerInset = NSMakeSize(10.0f, 20.0f);
     self.editor.automaticQuoteSubstitutionEnabled = NO;
     
-    self.webView.frameLoadDelegate = self;
     self.preview = [self.webView mainFrame];
     self.pipeline = [[MEDPipeline alloc] init];
     self.pipeline.delegate = self;
