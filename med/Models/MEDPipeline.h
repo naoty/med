@@ -21,5 +21,6 @@
 @protocol MEDPipelineDelegate <NSObject>
 
 - (void)pipeline:(MEDPipeline *)pipeline didReceiveStandardOutput:(NSString *)standardOutput time:(NSTimeInterval)time;
+- (void)pipeline:(MEDPipeline *)pipeline didReceiveStandardError:(NSString *)standardError time:(NSTimeInterval)time;
 
 @end

@@ -129,7 +129,16 @@
 {
     self.body = [standardOutput stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     [self loadPreview];
-    self.footerTextField.stringValue = [NSString stringWithFormat:@"%fs", time];
+    self.footerTextField.textColor = [NSColor controlTextColor];
+    self.footerTextField.stringValue = [NSString stringWithFormat:@"%.2fms", time * 1000];
+}
+
+- (void)pipeline:(MEDPipeline *)pipeline didReceiveStandardError:(NSString *)standardError time:(NSTimeInterval)time
+{
+    if (![standardError isEqualToString:@""]) {
+        self.footerTextField.textColor = [NSColor redColor];
+        self.footerTextField.stringValue = [NSString stringWithFormat:@"%@", standardError];
+    }
 }
 
 @end

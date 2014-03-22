@@ -67,6 +67,21 @@
                 }];
             }
             
+            NSPipe *errorPipe = [NSPipe pipe];
+            task.standardError = errorPipe;
+            
+            [[errorPipe fileHandleForReading] waitForDataInBackgroundAndNotify];
+            [[NSNotificationCenter defaultCenter] addObserverForName:NSFileHandleDataAvailableNotification object:[errorPipe fileHandleForReading] queue:nil usingBlock:^(NSNotification *notification){
+                NSDate *finishTime = [NSDate date];
+                NSTimeInterval time = [finishTime timeIntervalSinceDate:startTime];
+                
+                NSData *errorData = [[errorPipe fileHandleForReading] availableData];
+                NSString *errorString = [[NSString alloc] initWithData:errorData encoding:NSUTF8StringEncoding];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.delegate pipeline:self didReceiveStandardError:errorString time:time];
+                });
+            }];
+            
             [task launch];
             [task waitUntilExit];
             

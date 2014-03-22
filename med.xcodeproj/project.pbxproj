@@ -28,7 +28,6 @@
 		3DA38A4018DC82810025D45E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3418DC82810025D45E /* InfoPlist.strings */; };
 		3DA38A4118DC82810025D45E /* layout.html in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3618DC82810025D45E /* layout.html */; };
 		3DA38A4218DC82810025D45E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA38A3718DC82810025D45E /* main.m */; };
-		3DA38A4318DC82810025D45E /* med-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3818DC82810025D45E /* med-Info.plist */; };
 		3DA38A4418DC82810025D45E /* med.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3A18DC82810025D45E /* med.json */; };
 		3DA38A4518DC82810025D45E /* github.css in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3C18DC82810025D45E /* github.css */; };
 		3DA38A4618DC82810025D45E /* normalize.css in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3E18DC82810025D45E /* normalize.css */; };
@@ -295,7 +294,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MED;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Naoto Kaneko";
 				TargetAttributes = {
 					3D39B61F18C6C91A00EACA08 = {
@@ -330,7 +329,6 @@
 				3DA38A4818DC842E0025D45E /* dirty-shade.png in Resources */,
 				3D39B61B18C6C91A00EACA08 /* Images.xcassets in Resources */,
 				3DA38A4618DC82810025D45E /* normalize.css in Resources */,
-				3DA38A4318DC82810025D45E /* med-Info.plist in Resources */,
 				3D18D41918CCBA7300C1E76D /* MEDWindow.xib in Resources */,
 				3DA38A4118DC82810025D45E /* layout.html in Resources */,
 				3D39B64018C6CCBA00EACA08 /* MainMenu.xib in Resources */,

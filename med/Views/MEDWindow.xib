@@ -28,7 +28,7 @@
                 <subviews>
                     <splitView dividerStyle="thin" vertical="YES" id="6DI-GU-HR9">
                         <rect key="frame" x="0.0" y="22" width="960" height="518"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <customView id="Cne-y0-9BQ">
                                 <rect key="frame" x="0.0" y="0.0" width="483" height="518"/>
@@ -92,11 +92,11 @@
                     </splitView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Jhb-fY-V2M">
                         <rect key="frame" x="11" y="3" width="938" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" id="Xft-WV-AJU">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="right" id="Xft-WV-AJU">
                             <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                 </subviews>
