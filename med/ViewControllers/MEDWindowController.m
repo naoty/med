@@ -17,6 +17,7 @@
 @property (nonatomic) MEDPipeline *pipeline;
 @property (nonatomic, weak) IBOutlet WebView *webView;
 @property (nonatomic) WebFrame *preview;
+@property (nonatomic, weak) IBOutlet NSTextField *footerTextField;
 
 // Use to restore scroll position after reloading
 @property (nonatomic) CGPoint savedPreviewScrollPosition;
@@ -124,10 +125,11 @@
 
 #pragma mark - MEDPipelineDelegate
 
-- (void)pipeline:(MEDPipeline *)pipeline didReceiveStandardOutput:(NSString *)standardOutput
+- (void)pipeline:(MEDPipeline *)pipeline didReceiveStandardOutput:(NSString *)standardOutput time:(NSTimeInterval)time
 {
     self.body = [standardOutput stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     [self loadPreview];
+    self.footerTextField.stringValue = [NSString stringWithFormat:@"%fs", time];
 }
 
 @end

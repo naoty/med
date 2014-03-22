@@ -20,6 +20,6 @@
 
 @protocol MEDPipelineDelegate <NSObject>
 
-- (void)pipeline:(MEDPipeline *)pipeline didReceiveStandardOutput:(NSString *)standardOutput;
+- (void)pipeline:(MEDPipeline *)pipeline didReceiveStandardOutput:(NSString *)standardOutput time:(NSTimeInterval)time;
 
 @end

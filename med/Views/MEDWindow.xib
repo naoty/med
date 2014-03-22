@@ -9,6 +9,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MEDWindowController">
             <connections>
                 <outlet property="editor" destination="VjS-QZ-7mB" id="BpO-Bn-zlW"/>
+                <outlet property="footerTextField" destination="Jhb-fY-V2M" id="upZ-7f-ah3"/>
                 <outlet property="webView" destination="Cb8-K0-9hj" id="IJC-kY-nBk"/>
                 <outlet property="window" destination="1" id="1dN-n3-scB"/>
             </connections>
@@ -26,28 +27,28 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <splitView dividerStyle="thin" vertical="YES" id="6DI-GU-HR9">
-                        <rect key="frame" x="0.0" y="0.0" width="960" height="540"/>
+                        <rect key="frame" x="0.0" y="22" width="960" height="518"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <customView id="Cne-y0-9BQ">
-                                <rect key="frame" x="0.0" y="0.0" width="483" height="540"/>
+                                <rect key="frame" x="0.0" y="0.0" width="483" height="518"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="PlN-oJ-30N">
-                                        <rect key="frame" x="0.0" y="0.0" width="483" height="540"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="483" height="518"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <clipView key="contentView" id="Erl-sw-YdS">
-                                            <rect key="frame" x="0.0" y="0.0" width="483" height="540"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="483" height="518"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textView importsGraphics="NO" findStyle="panel" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="VjS-QZ-7mB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="483" height="540"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="483" height="518"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <size key="minSize" width="483" height="540"/>
+                                                    <size key="minSize" width="483" height="518"/>
                                                     <size key="maxSize" width="483" height="10000000"/>
                                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <size key="minSize" width="483" height="540"/>
+                                                    <size key="minSize" width="483" height="518"/>
                                                     <size key="maxSize" width="483" height="10000000"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="-2" id="rIC-3X-oeJ"/>
@@ -61,20 +62,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="VUv-lL-7U4">
-                                            <rect key="frame" x="467" y="0.0" width="16" height="540"/>
+                                            <rect key="frame" x="467" y="0.0" width="16" height="518"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
                                 </subviews>
                             </customView>
                             <customView id="SP4-Cm-MKR">
-                                <rect key="frame" x="484" y="0.0" width="476" height="540"/>
+                                <rect key="frame" x="484" y="0.0" width="476" height="518"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <webView id="Cb8-K0-9hj">
-                                        <rect key="frame" x="0.0" y="0.0" width="476" height="540"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="476" height="518"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" plugInsEnabled="NO" javaEnabled="NO" javaScriptEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO"/>
+                                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" plugInsEnabled="NO" javaEnabled="NO" javaScriptEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO">
+                                            <nil key="identifier"/>
+                                        </webPreferences>
                                         <connections>
                                             <outlet property="frameLoadDelegate" destination="-2" id="KBf-Bs-mEt"/>
                                         </connections>
@@ -87,8 +90,18 @@
                             <real value="250"/>
                         </holdingPriorities>
                     </splitView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Jhb-fY-V2M">
+                        <rect key="frame" x="11" y="3" width="938" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" id="Xft-WV-AJU">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
+            <contentBorderThickness minY="22"/>
         </window>
     </objects>
 </document>

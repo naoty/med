@@ -42,6 +42,7 @@
         [echo waitUntilExit];
         
         NSTask *previousTask = echo;
+        NSDate *startTime = [NSDate date];
         for (NSString *script in self.scripts) {
             NSTask *task = [[NSTask alloc] init];
             task.launchPath = @"/bin/sh";
@@ -55,10 +56,13 @@
             if ([self.scripts indexOfObject:script] == self.scripts.count - 1) {
                 [[outputPipe fileHandleForReading] waitForDataInBackgroundAndNotify];
                 [[NSNotificationCenter defaultCenter] addObserverForName:NSFileHandleDataAvailableNotification object:[outputPipe fileHandleForReading] queue:nil usingBlock:^(NSNotification *notification){
+                    NSDate *finishTime = [NSDate date];
+                    NSTimeInterval time = [finishTime timeIntervalSinceDate:startTime];
+                    
                     NSData *outputData = [[outputPipe fileHandleForReading] availableData];
                     NSString *outputString = [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [self.delegate pipeline:self didReceiveStandardOutput:outputString];
+                        [self.delegate pipeline:self didReceiveStandardOutput:outputString time:time];
                     });
                 }];
             }
