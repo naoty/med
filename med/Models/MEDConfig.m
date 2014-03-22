@@ -77,13 +77,14 @@
     if (error) {
         NSLog(@"Error: %@", error);
     } else {
-        self.path = (json[@"path"] == nil) ? self.path : json[@"path"];
-        self.scripts = (json[@"scripts"] == nil) ? self.scripts : json[@"scripts"];
+        self.path = json[@"path"] ?: self.path;
+        self.scripts = json[@"scripts"] ?: self.scripts;
         
         NSDictionary *editor = json[@"editor"];
         if (editor) {
-            self.fontName = (editor[@"fontName"] == nil) ? self.fontName : editor[@"fontName"];
-            self.fontSize = (editor[@"fontSize"] == nil) ? self.fontSize : editor[@"fontSize"];
+            self.fontName = editor[@"fontName"] ?: self.fontName;
+            self.fontSize = editor[@"fontSize"] ?: self.fontSize;
+            self.padding = editor[@"padding"] ?: self.padding;
         }
     }
 }

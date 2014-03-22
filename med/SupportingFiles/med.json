@@ -3,6 +3,7 @@
     "scripts": [],
     "editor": {
         "fontName": "Monaco",
-        "fontSize": 12
+        "fontSize": 12,
+        "padding": 0
     }
 }

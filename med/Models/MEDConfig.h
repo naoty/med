@@ -14,6 +14,7 @@
 @property (nonatomic) NSArray *scripts;
 @property (nonatomic, copy) NSString *fontName;
 @property (nonatomic) NSNumber *fontSize;
+@property (nonatomic) NSNumber *padding;
 
 @property (nonatomic) NSMutableArray *defaultStylesheetPaths;
 @property (nonatomic) NSMutableArray *userStylesheetPaths;

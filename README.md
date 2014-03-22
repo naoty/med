@@ -13,8 +13,9 @@ Med applies filters to texts through UNIX pipes. The filters are required that t
         "marked"
     ],
     "editor": {
-        "fontName": "Monaco",
-        "fontSize": 12
+        "fontName": "Ricty",
+        "fontSize": 18,
+        "padding": 10
     }
 }
 ```
