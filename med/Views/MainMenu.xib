@@ -105,6 +105,20 @@
                                     <action selector="revertDocumentToSaved:" target="-1" id="364"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="hVj-3F-Bon"/>
+                            <menuItem title="Publish" id="Bwx-2i-Kqy">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Publish" id="Hod-e6-T46">
+                                    <items>
+                                        <menuItem title="Markdown" id="ZD3-0W-rsI">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="HTML" id="mR4-pE-WoL">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="74">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -652,6 +666,8 @@
         </menu>
         <customObject id="494" customClass="MEDAppDelegate">
             <connections>
+                <outlet property="htmlPublishersMenuItem" destination="mR4-pE-WoL" id="0Tr-pp-UR0"/>
+                <outlet property="markdownPublishersMenuItem" destination="ZD3-0W-rsI" id="N5T-yz-22K"/>
                 <outlet property="stylesheetsMenuItem" destination="3Bt-MK-NJ0" id="SUM-yk-fzZ"/>
                 <outlet property="viewMenu" destination="296" id="Br3-CP-EkO"/>
             </connections>

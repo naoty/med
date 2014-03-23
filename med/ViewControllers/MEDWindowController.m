@@ -88,9 +88,9 @@
 
 - (void)loadPreview
 {
-    NSString *html = [NSString stringWithFormat:self.layout, self.style, self.body];
+    self.html = [NSString stringWithFormat:self.layout, self.style, self.body];
     [self rememberPreviewScrollPosition];
-    [self.preview loadHTMLString:html baseURL:[[NSBundle mainBundle] resourceURL]];
+    [self.preview loadHTMLString:self.html baseURL:[[NSBundle mainBundle] resourceURL]];
 }
 
 - (void)rememberPreviewScrollPosition

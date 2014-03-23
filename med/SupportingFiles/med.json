@@ -1,6 +1,10 @@
 {
     "path": "/usr/bin:/bin:/usr/sbin:/sbin",
-    "scripts": [],
+    "parsers": [],
+    "publishers": {
+        "markdown": [],
+        "html": []
+    },
     "editor": {
         "fontName": "Monaco",
         "fontSize": 12,

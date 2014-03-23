@@ -76,16 +76,23 @@
     
     if (error) {
         NSLog(@"Error: %@", error);
-    } else {
-        self.path = json[@"path"] ?: self.path;
-        self.parsers = json[@"parsers"] ?: self.parsers;
-        
-        NSDictionary *editor = json[@"editor"];
-        if (editor) {
-            self.fontName = editor[@"fontName"] ?: self.fontName;
-            self.fontSize = editor[@"fontSize"] ?: self.fontSize;
-            self.padding = editor[@"padding"] ?: self.padding;
-        }
+        return;
+    }
+    
+    self.path = json[@"path"] ?: self.path;
+    self.parsers = json[@"parsers"] ?: self.parsers;
+    
+    NSDictionary *publishers = json[@"publishers"];
+    if (publishers) {
+        self.markdownPublishers = publishers[@"markdown"] ?: self.markdownPublishers;
+        self.htmlPublishers = publishers[@"html"] ?: self.htmlPublishers;
+    }
+    
+    NSDictionary *editor = json[@"editor"];
+    if (editor) {
+        self.fontName = editor[@"fontName"] ?: self.fontName;
+        self.fontSize = editor[@"fontSize"] ?: self.fontSize;
+        self.padding = editor[@"padding"] ?: self.padding;
     }
 }
 

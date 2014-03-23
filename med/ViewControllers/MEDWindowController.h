@@ -9,6 +9,10 @@
 #import <Cocoa/Cocoa.h>
 
 @interface MEDWindowController : NSWindowController
+
 @property (nonatomic) IBOutlet NSTextView *editor;
+@property (nonatomic, copy) NSString *html;
+
 - (void)changePreviewStylesheetAtPath:(NSString *)path;
+
 @end

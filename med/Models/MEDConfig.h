@@ -12,6 +12,8 @@
 
 @property (nonatomic, copy) NSString *path;
 @property (nonatomic) NSArray *parsers;
+@property (nonatomic) NSArray *markdownPublishers;
+@property (nonatomic) NSArray *htmlPublishers;
 @property (nonatomic, copy) NSString *fontName;
 @property (nonatomic) NSNumber *fontSize;
 @property (nonatomic) NSNumber *padding;

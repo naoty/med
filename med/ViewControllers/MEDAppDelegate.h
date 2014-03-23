@@ -11,6 +11,8 @@
 @interface MEDAppDelegate : NSDocumentController <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
-@property (nonatomic) IBOutlet NSMenuItem *stylesheetsMenuItem;
+@property (nonatomic, weak) IBOutlet NSMenuItem *stylesheetsMenuItem;
+@property (nonatomic, weak) IBOutlet NSMenuItem *markdownPublishersMenuItem;
+@property (nonatomic, weak) IBOutlet NSMenuItem *htmlPublishersMenuItem;
 
 @end

@@ -24,6 +24,8 @@
 		3D39B63E18C6CCA500EACA08 /* MEDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D39B63C18C6CCA500EACA08 /* MEDAppDelegate.m */; };
 		3D39B64018C6CCBA00EACA08 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D39B63F18C6CCBA00EACA08 /* MainMenu.xib */; };
 		3D39B64118C6CCBA00EACA08 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D39B63F18C6CCBA00EACA08 /* MainMenu.xib */; };
+		3D61D01A18E07D8300DB8AE0 /* MEDPublisher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D61D01918E07D8300DB8AE0 /* MEDPublisher.m */; };
+		3D61D01B18E07D8300DB8AE0 /* MEDPublisher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D61D01918E07D8300DB8AE0 /* MEDPublisher.m */; };
 		3DA38A3F18DC82810025D45E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3218DC82810025D45E /* Credits.rtf */; };
 		3DA38A4018DC82810025D45E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3418DC82810025D45E /* InfoPlist.strings */; };
 		3DA38A4118DC82810025D45E /* layout.html in Resources */ = {isa = PBXBuildFile; fileRef = 3DA38A3618DC82810025D45E /* layout.html */; };
@@ -69,6 +71,8 @@
 		3D39B63B18C6CCA500EACA08 /* MEDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDAppDelegate.h; sourceTree = "<group>"; };
 		3D39B63C18C6CCA500EACA08 /* MEDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDAppDelegate.m; sourceTree = "<group>"; };
 		3D39B63F18C6CCBA00EACA08 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		3D61D01818E07D8200DB8AE0 /* MEDPublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDPublisher.h; sourceTree = "<group>"; };
+		3D61D01918E07D8300DB8AE0 /* MEDPublisher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDPublisher.m; sourceTree = "<group>"; };
 		3DA38A3318DC82810025D45E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = Credits.rtf; sourceTree = "<group>"; };
 		3DA38A3518DC82810025D45E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		3DA38A3618DC82810025D45E /* layout.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = layout.html; sourceTree = "<group>"; };
@@ -194,10 +198,12 @@
 			children = (
 				3D0CBE8418CAC55600B199F3 /* MEDConfig.h */,
 				3D0CBE8518CAC55600B199F3 /* MEDConfig.m */,
-				3D0CBE8618CAC55600B199F3 /* MEDPipeline.h */,
-				3D0CBE8718CAC55600B199F3 /* MEDPipeline.m */,
 				3D18D40E18CCB5F000C1E76D /* MEDDocument.h */,
 				3D18D40F18CCB5F000C1E76D /* MEDDocument.m */,
+				3D0CBE8618CAC55600B199F3 /* MEDPipeline.h */,
+				3D0CBE8718CAC55600B199F3 /* MEDPipeline.m */,
+				3D61D01818E07D8200DB8AE0 /* MEDPublisher.h */,
+				3D61D01918E07D8300DB8AE0 /* MEDPublisher.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D0CBE8A18CAC55600B199F3 /* MEDPipeline.m in Sources */,
+				3D61D01A18E07D8300DB8AE0 /* MEDPublisher.m in Sources */,
 				3D18D41518CCB9CC00C1E76D /* MEDWindowController.m in Sources */,
 				3D0CBE8818CAC55600B199F3 /* MEDConfig.m in Sources */,
 				3D39B63D18C6CCA500EACA08 /* MEDAppDelegate.m in Sources */,
@@ -368,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D61D01B18E07D8300DB8AE0 /* MEDPublisher.m in Sources */,
 				3D0CBE8B18CAC55600B199F3 /* MEDPipeline.m in Sources */,
 				3D39B62D18C6C91B00EACA08 /* medTests.m in Sources */,
 				3D0CBE8918CAC55600B199F3 /* MEDConfig.m in Sources */,

@@ -9,6 +9,8 @@
 #import "MEDAppDelegate.h"
 #import "MEDWindowController.h"
 #import "MEDConfig.h"
+#import "MEDPublisher.h"
+#import "MEDDocument.h"
 
 @interface MEDAppDelegate ()
 @property (nonatomic) MEDConfig *config;
@@ -21,13 +23,12 @@
 {
     self.config = [MEDConfig sharedConfig];
     [self addStylesheetMenu];
+    [self addPublishersMenu];
 }
-
-#pragma mark - Private methods
 
 - (void)addStylesheetMenu
 {
-    self.stylesheetsSubMenu = [[NSMenu alloc] init];
+    self.stylesheetsSubMenu = [NSMenu new];
     
     // Default stylesheets
     for (NSString *stylesheetPath in self.config.defaultStylesheetPaths) {
@@ -47,24 +48,67 @@
     self.stylesheetsMenuItem.submenu = self.stylesheetsSubMenu;
 }
 
+- (void)addPublishersMenu
+{
+    if (self.config.markdownPublishers.count > 0) {
+        NSMenu *markdownPublishersSubMenu = [NSMenu new];
+        for (NSString *filename in self.config.markdownPublishers) {
+            [markdownPublishersSubMenu addItemWithTitle:filename action:@selector(didMarkdownPublisherMenuItemSelected:) keyEquivalent:@""];
+        }
+        self.markdownPublishersMenuItem.submenu = markdownPublishersSubMenu;
+    }
+    
+    if (self.config.htmlPublishers.count > 0) {
+        NSMenu *htmlPublishersSubMenu = [NSMenu new];
+        for (NSString *filename in self.config.htmlPublishers) {
+            [htmlPublishersSubMenu addItemWithTitle:filename action:@selector(didHTMLPublisherMenuItemSelected:) keyEquivalent:@""];
+        }
+        self.htmlPublishersMenuItem.submenu = htmlPublishersSubMenu;
+    }
+}
+
+#pragma mark - Selectors
+
 - (void)didDefaultStylesheetMenuItemSelected:(id)sender
 {
     NSMenuItem *selectedMenuItem = (NSMenuItem *) sender;
     NSString *stylesheetPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:selectedMenuItem.title];
-    
-    NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
-    MEDWindowController *windowController = (MEDWindowController *) mainWindow.windowController;
-    [windowController changePreviewStylesheetAtPath:stylesheetPath];
+    [[self windowController] changePreviewStylesheetAtPath:stylesheetPath];
 }
 
 - (void)didStylesheetMenuItemSelected:(id)sender
 {
     NSMenuItem *selectedMenuItem = (NSMenuItem *) sender;
     NSString *stylesheetPath = [[@"~/.med/stylesheets" stringByAppendingPathComponent:selectedMenuItem.title] stringByExpandingTildeInPath];
+    [[self windowController] changePreviewStylesheetAtPath:stylesheetPath];
+}
+
+- (void)didMarkdownPublisherMenuItemSelected:(id)sender
+{
+    NSMenuItem *selectedMenuItem = (NSMenuItem *) sender;
     
+    MEDPublisher *publisher = [[MEDPublisher alloc] initWithName:selectedMenuItem.title];
+    MEDWindowController *windowController = [self windowController];
+    MEDDocument *document = windowController.document;
+    [publisher runWithFilename:document.fileURL.path standardInput:windowController.editor.string];
+}
+
+- (void)didHTMLPublisherMenuItemSelected:(id)sender
+{
+    NSMenuItem *selectedMenuItem = (NSMenuItem *) sender;
+    
+    MEDPublisher *publisher = [[MEDPublisher alloc] initWithName:selectedMenuItem.title];
+    MEDWindowController *windowController = [self windowController];
+    MEDDocument *document = windowController.document;
+    [publisher runWithFilename:document.fileURL.path standardInput:windowController.html];
+}
+
+#pragma mark - Private methods
+
+- (MEDWindowController *)windowController
+{
     NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
-    MEDWindowController *windowController = (MEDWindowController *) mainWindow.windowController;
-    [windowController changePreviewStylesheetAtPath:stylesheetPath];
+    return (MEDWindowController *) mainWindow.windowController;
 }
 
 @end
