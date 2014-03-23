@@ -11,7 +11,7 @@
 @interface MEDConfig : NSObject
 
 @property (nonatomic, copy) NSString *path;
-@property (nonatomic) NSArray *scripts;
+@property (nonatomic) NSArray *parsers;
 @property (nonatomic, copy) NSString *fontName;
 @property (nonatomic) NSNumber *fontSize;
 @property (nonatomic) NSNumber *padding;

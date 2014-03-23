@@ -11,7 +11,7 @@
 
 @interface MEDPipeline ()
 @property (nonatomic, copy) NSString *path;
-@property (nonatomic) NSArray *scripts;
+@property (nonatomic) NSArray *parsers;
 @end
 
 @implementation MEDPipeline
@@ -22,7 +22,7 @@
     if (self) {
         MEDConfig *config = [MEDConfig sharedConfig];
         self.path = config.path;
-        self.scripts = config.scripts;
+        self.parsers = config.parsers;
     }
     return self;
 }
@@ -43,7 +43,7 @@
         
         NSTask *previousTask = echo;
         NSDate *startTime = [NSDate date];
-        for (NSString *script in self.scripts) {
+        for (NSString *script in self.parsers) {
             NSTask *task = [[NSTask alloc] init];
             task.launchPath = @"/bin/sh";
             task.arguments = @[@"-l", @"-c", script];
@@ -53,7 +53,7 @@
             NSPipe *outputPipe = [NSPipe pipe];
             task.standardOutput = outputPipe;
             
-            if ([self.scripts indexOfObject:script] == self.scripts.count - 1) {
+            if ([self.parsers indexOfObject:script] == self.parsers.count - 1) {
                 [[outputPipe fileHandleForReading] waitForDataInBackgroundAndNotify];
                 [[NSNotificationCenter defaultCenter] addObserverForName:NSFileHandleDataAvailableNotification object:[outputPipe fileHandleForReading] queue:nil usingBlock:^(NSNotification *notification){
                     NSDate *finishTime = [NSDate date];

@@ -78,7 +78,7 @@
         NSLog(@"Error: %@", error);
     } else {
         self.path = json[@"path"] ?: self.path;
-        self.scripts = json[@"scripts"] ?: self.scripts;
+        self.parsers = json[@"parsers"] ?: self.parsers;
         
         NSDictionary *editor = json[@"editor"];
         if (editor) {
