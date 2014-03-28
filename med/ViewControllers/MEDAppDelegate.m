@@ -15,6 +15,7 @@
 @interface MEDAppDelegate ()
 @property (nonatomic) MEDConfig *config;
 @property (nonatomic) NSMenu *stylesheetsSubMenu;
+@property (nonatomic, readonly) MEDWindowController *windowController;
 @end
 
 @implementation MEDAppDelegate
@@ -88,9 +89,10 @@
     NSMenuItem *selectedMenuItem = (NSMenuItem *) sender;
     
     MEDPublisher *publisher = [[MEDPublisher alloc] initWithName:selectedMenuItem.title];
-    MEDWindowController *windowController = [self windowController];
-    MEDDocument *document = windowController.document;
-    [publisher runWithFilename:document.fileURL.path standardInput:windowController.editor.string];
+    publisher.delegate = self.windowController;
+    MEDDocument *document = self.windowController.document;
+    NSString *filename = document.fileURL.lastPathComponent.stringByDeletingPathExtension;
+    [publisher runWithFilename:filename standardInput:self.windowController.editor.string];
 }
 
 - (void)didHTMLPublisherMenuItemSelected:(id)sender
@@ -98,9 +100,10 @@
     NSMenuItem *selectedMenuItem = (NSMenuItem *) sender;
     
     MEDPublisher *publisher = [[MEDPublisher alloc] initWithName:selectedMenuItem.title];
-    MEDWindowController *windowController = [self windowController];
-    MEDDocument *document = windowController.document;
-    [publisher runWithFilename:document.fileURL.path standardInput:windowController.html];
+    publisher.delegate = self.windowController;
+    MEDDocument *document = self.windowController.document;
+    NSString *filename = document.fileURL.lastPathComponent.stringByDeletingPathExtension;
+    [publisher runWithFilename:filename standardInput:self.windowController.body];
 }
 
 #pragma mark - Private methods

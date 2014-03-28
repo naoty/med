@@ -25,7 +25,7 @@
 // HTML
 @property (nonatomic, copy) NSString *layout;
 @property (nonatomic, copy) NSString *style;
-@property (nonatomic, copy) NSString *body;
+@property (nonatomic, copy, readwrite) NSString *body;
 
 @end
 
@@ -88,9 +88,9 @@
 
 - (void)loadPreview
 {
-    self.html = [NSString stringWithFormat:self.layout, self.style, self.body];
+    NSString *html = [NSString stringWithFormat:self.layout, self.style, self.body];
     [self rememberPreviewScrollPosition];
-    [self.preview loadHTMLString:self.html baseURL:[[NSBundle mainBundle] resourceURL]];
+    [self.preview loadHTMLString:html baseURL:[[NSBundle mainBundle] resourceURL]];
 }
 
 - (void)rememberPreviewScrollPosition
@@ -137,7 +137,25 @@
 {
     if (![standardError isEqualToString:@""]) {
         self.footerTextField.textColor = [NSColor redColor];
-        self.footerTextField.stringValue = [NSString stringWithFormat:@"%@", standardError];
+        self.footerTextField.stringValue = [standardError stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    }
+}
+
+#pragma mark - MEDPublisherDelegate
+
+- (void)publisher:(MEDPublisher *)publisher didReceiveStandardOutput:(NSString *)standardOutput time:(NSTimeInterval)time
+{
+    if (![standardOutput isEqualToString:@""]) {
+        NSString *message = [standardOutput stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        self.footerTextField.stringValue = [NSString stringWithFormat:@"%@ [%.2fms]", message, time * 1000];
+    }
+}
+
+- (void)publisher:(MEDPublisher *)publisher didReceiveStandardError:(NSString *)standardError time:(NSTimeInterval)time
+{
+    if (![standardError isEqualToString:@""]) {
+        NSString *message = [standardError stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        self.footerTextField.stringValue = [NSString stringWithFormat:@"%@ [%.2fms]", message, time * 1000];
     }
 }
 

@@ -7,11 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MEDPublisher.h"
 
-@interface MEDWindowController : NSWindowController
+@interface MEDWindowController : NSWindowController <MEDPublisherDelegate>
 
 @property (nonatomic) IBOutlet NSTextView *editor;
-@property (nonatomic, copy) NSString *html;
+@property (nonatomic, copy, readonly) NSString *body;
+@property (nonatomic) MEDPublisher *publisher;
 
 - (void)changePreviewStylesheetAtPath:(NSString *)path;
 
