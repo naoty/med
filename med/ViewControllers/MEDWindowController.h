@@ -9,9 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "MEDPublisher.h"
 
+@class NTYSmartTextView;
+
 @interface MEDWindowController : NSWindowController <MEDPublisherDelegate>
 
-@property (nonatomic) IBOutlet NSTextView *editor;
+@property (nonatomic) IBOutlet NTYSmartTextView *editor;
 @property (nonatomic, copy, readonly) NSString *body;
 @property (nonatomic) MEDPublisher *publisher;
 

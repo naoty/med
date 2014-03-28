@@ -11,6 +11,7 @@
 #import "MEDConfig.h"
 #import "MEDPublisher.h"
 #import "MEDDocument.h"
+#import "NTYSmartTextView.h"
 
 @interface MEDAppDelegate ()
 @property (nonatomic) MEDConfig *config;

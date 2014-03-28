@@ -1,0 +1,10 @@
+PODS:
+  - NTYSmartTextView (0.2.0)
+
+DEPENDENCIES:
+  - NTYSmartTextView
+
+SPEC CHECKSUMS:
+  NTYSmartTextView: 1450088dd222ad83eff23e094168ac1d27d6598e
+
+COCOAPODS: 0.29.0

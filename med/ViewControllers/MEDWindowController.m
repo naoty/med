@@ -11,6 +11,7 @@
 #import "MEDDocument.h"
 #import "MEDPipeline.h"
 #import "MEDConfig.h"
+#import "NTYSmartTextView.h"
 
 @interface MEDWindowController () <NSTextDelegate, MEDPipelineDelegate>
 
@@ -57,6 +58,10 @@
     self.editor.automaticQuoteSubstitutionEnabled = NO;
     self.editor.automaticDashSubstitutionEnabled = NO;
     self.editor.textContainerInset = NSMakeSize(config.padding.floatValue, config.padding.floatValue);
+    self.editor.smartIndentEnabled = config.smartIndentEnabled;
+    self.editor.softTabEnabled = config.softTabEnabled;
+    self.editor.tabWidth = [config.tabWidth intValue];
+    self.editor.autoPairCompletionEnabled = config.autoPairCompletionEnabled;
     
     self.preview = [self.webView mainFrame];
     self.pipeline = [[MEDPipeline alloc] init];

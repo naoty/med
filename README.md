@@ -24,7 +24,8 @@ You can set configurations such as markdown parsers and the appearance of editor
     "editor": {
         "fontName": "Ricty",
         "fontSize": 14,
-        "padding": 10
+        "padding": 10,
+        "tabWidth": 2
     }
 }
 ```

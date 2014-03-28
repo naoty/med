@@ -37,12 +37,12 @@
         [self loadWithContentOfFile:userConfigPath];
         
         // Default stylesheet
-        self.defaultStylesheetPaths = [NSMutableArray array];
+        _defaultStylesheetPaths = [NSMutableArray array];
         NSString *defaultStylesheetPath = [bundle pathForResource:@"github" ofType:@"css"];
         [self.defaultStylesheetPaths addObject:defaultStylesheetPath];
         
         // User's stylesheets
-        self.userStylesheetPaths = [NSMutableArray array];
+        _userStylesheetPaths = [NSMutableArray array];
         NSString *userStylesheetsDirectoryPath = [@"~/.med/stylesheets" stringByExpandingTildeInPath];
         NSArray *filenames = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:userStylesheetsDirectoryPath error:nil];
         for (NSString *filename in filenames) {
@@ -79,20 +79,24 @@
         return;
     }
     
-    self.path = json[@"path"] ?: self.path;
-    self.parsers = json[@"parsers"] ?: self.parsers;
+    _path = json[@"path"] ?: _path;
+    _parsers = json[@"parsers"] ?: _parsers;
     
     NSDictionary *publishers = json[@"publishers"];
     if (publishers) {
-        self.markdownPublishers = publishers[@"markdown"] ?: self.markdownPublishers;
-        self.htmlPublishers = publishers[@"html"] ?: self.htmlPublishers;
+        _markdownPublishers = publishers[@"markdown"] ?: _markdownPublishers;
+        _htmlPublishers = publishers[@"html"] ?: _htmlPublishers;
     }
     
     NSDictionary *editor = json[@"editor"];
     if (editor) {
-        self.fontName = editor[@"fontName"] ?: self.fontName;
-        self.fontSize = editor[@"fontSize"] ?: self.fontSize;
-        self.padding = editor[@"padding"] ?: self.padding;
+        _fontName = editor[@"fontName"] ?: _fontName;
+        _fontSize = editor[@"fontSize"] ?: _fontSize;
+        _padding = editor[@"padding"] ?: _padding;
+        _smartIndentEnabled = [editor[@"smartIndentEnabled"] boolValue] ?: _smartIndentEnabled;
+        _softTabEnabled = [editor[@"softTabEnabled"] boolValue] ?: _softTabEnabled;
+        _tabWidth = editor[@"tabWidth"] ?: _tabWidth;
+        _autoPairCompletionEnabled = [editor[@"autoPairCompletionEnabled"] boolValue] ?: _autoPairCompletionEnabled;
     }
 }
 

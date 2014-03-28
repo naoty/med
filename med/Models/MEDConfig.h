@@ -10,16 +10,20 @@
 
 @interface MEDConfig : NSObject
 
-@property (nonatomic, copy) NSString *path;
-@property (nonatomic) NSArray *parsers;
-@property (nonatomic) NSArray *markdownPublishers;
-@property (nonatomic) NSArray *htmlPublishers;
-@property (nonatomic, copy) NSString *fontName;
-@property (nonatomic) NSNumber *fontSize;
-@property (nonatomic) NSNumber *padding;
+@property (nonatomic, copy, readonly) NSString *path;
+@property (nonatomic, readonly) NSArray *parsers;
+@property (nonatomic, readonly) NSArray *markdownPublishers;
+@property (nonatomic, readonly) NSArray *htmlPublishers;
+@property (nonatomic, copy, readonly) NSString *fontName;
+@property (nonatomic, readonly) NSNumber *fontSize;
+@property (nonatomic, readonly) NSNumber *padding;
+@property (nonatomic, readonly) BOOL smartIndentEnabled;
+@property (nonatomic, readonly) BOOL softTabEnabled;
+@property (nonatomic, readonly) NSNumber *tabWidth;
+@property (nonatomic, readonly) BOOL autoPairCompletionEnabled;
 
-@property (nonatomic) NSMutableArray *defaultStylesheetPaths;
-@property (nonatomic) NSMutableArray *userStylesheetPaths;
+@property (nonatomic, readonly) NSMutableArray *defaultStylesheetPaths;
+@property (nonatomic, readonly) NSMutableArray *userStylesheetPaths;
 
 + (id)sharedConfig;
 

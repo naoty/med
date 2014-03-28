@@ -8,6 +8,10 @@
     "editor": {
         "fontName": "Monaco",
         "fontSize": 12,
-        "padding": 0
+        "padding": 0,
+        "smartIndentEnabled": "y",
+        "softTabEnabled": "y",
+        "tabWidth": 4,
+        "autoPairCompletionEnabled": "y"
     }
 }
