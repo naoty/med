@@ -13,9 +13,11 @@
 @interface MEDPublisher : NSObject
 
 @property (nonatomic, weak) id <MEDPublisherDelegate> delegate;
+@property (nonatomic, copy) NSString *standardInput;
 
 - (id)initWithName:(NSString *)name;
 - (void)runWithFilename:(NSString *)filename standardInput:(NSString *)standardInput;
+- (void)runWithFilename:(NSString *)filename;
 
 @end
 

@@ -14,9 +14,9 @@
 @interface MEDWindowController : NSWindowController <MEDPublisherDelegate>
 
 @property (nonatomic) IBOutlet NTYSmartTextView *editor;
-@property (nonatomic, copy, readonly) NSString *body;
-@property (nonatomic) MEDPublisher *publisher;
 
 - (void)changePreviewStylesheetAtPath:(NSString *)path;
+- (void)runMarkdownPublisher:(MEDPublisher *)publisher;
+- (void)runHTMLPublisher:(MEDPublisher *)publisher;
 
 @end

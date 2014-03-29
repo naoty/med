@@ -72,4 +72,9 @@
     });
 }
 
+- (void)runWithFilename:(NSString *)filename
+{
+    [self runWithFilename:filename standardInput:_standardInput];
+}
+
 @end

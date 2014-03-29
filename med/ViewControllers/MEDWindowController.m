@@ -26,7 +26,10 @@
 // HTML
 @property (nonatomic, copy) NSString *layout;
 @property (nonatomic, copy) NSString *style;
-@property (nonatomic, copy, readwrite) NSString *body;
+@property (nonatomic, copy) NSString *body;
+
+// Temporary memory for publisher
+@property (nonatomic) MEDPublisher *publisher;
 
 @end
 
@@ -89,11 +92,21 @@
     [self loadPreview];
 }
 
+- (void)runMarkdownPublisher:(MEDPublisher *)publisher
+{
+    [self runPublisher:publisher standardInput:_editor.string];
+}
+
+- (void)runHTMLPublisher:(MEDPublisher *)publisher
+{
+    [self runPublisher:publisher standardInput:_body];
+}
+
 #pragma mark - Private methods
 
 - (void)loadPreview
 {
-    NSString *html = [NSString stringWithFormat:self.layout, self.style, self.body];
+    NSString *html = [NSString stringWithFormat:_layout, _style, _body];
     [self rememberPreviewScrollPosition];
     [self.preview loadHTMLString:html baseURL:[[NSBundle mainBundle] resourceURL]];
 }
@@ -111,6 +124,28 @@
     }
 }
 
+- (void)runPublisher:(MEDPublisher *)publisher standardInput:(NSString *)standardInput
+{
+    self.publisher = publisher;
+    
+    _publisher.delegate = self;
+    
+    MEDDocument *document = self.document;
+    if (document.isDocumentEdited) {
+        _publisher.standardInput = standardInput;
+        [document saveDocumentWithDelegate:self didSaveSelector:@selector(document:didSave:contextInfo:) contextInfo:nil];
+    } else {
+        NSString *filename = document.fileURL.lastPathComponent.stringByDeletingPathExtension;
+        [_publisher runWithFilename:filename standardInput:standardInput];
+    }
+}
+
+- (void)document:(NSDocument *)document didSave:(BOOL)didSave contextInfo:(void *)contextInfo
+{
+    NSString *filename = document.fileURL.lastPathComponent.stringByDeletingPathExtension;
+    [_publisher runWithFilename:filename];
+}
+
 #pragma mark - NSTextDelegate
 
 - (void)textDidChange:(NSNotification *)notification
@@ -124,7 +159,7 @@
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame
 {
-    [self.preview.frameView.documentView scrollPoint:NSMakePoint(0, self.savedPreviewScrollPosition.y)];
+    [self.preview.frameView.documentView scrollPoint:NSMakePoint(0, _savedPreviewScrollPosition.y)];
     self.savedPreviewScrollPosition = NSZeroPoint;
 }
 
@@ -134,15 +169,15 @@
 {
     self.body = [standardOutput stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     [self loadPreview];
-    self.footerTextField.textColor = [NSColor controlTextColor];
-    self.footerTextField.stringValue = [NSString stringWithFormat:@"%.2fms", time * 1000];
+    _footerTextField.textColor = [NSColor controlTextColor];
+    _footerTextField.stringValue = [NSString stringWithFormat:@"%.2fms", time * 1000];
 }
 
 - (void)pipeline:(MEDPipeline *)pipeline didReceiveStandardError:(NSString *)standardError time:(NSTimeInterval)time
 {
     if (![standardError isEqualToString:@""]) {
-        self.footerTextField.textColor = [NSColor redColor];
-        self.footerTextField.stringValue = [standardError stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        _footerTextField.textColor = [NSColor redColor];
+        _footerTextField.stringValue = [standardError stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     }
 }
 
@@ -152,7 +187,7 @@
 {
     if (![standardOutput isEqualToString:@""]) {
         NSString *message = [standardOutput stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        self.footerTextField.stringValue = [NSString stringWithFormat:@"%@ [%.2fms]", message, time * 1000];
+        _footerTextField.stringValue = [NSString stringWithFormat:@"%@ [%.2fms]", message, time * 1000];
     }
 }
 
@@ -160,7 +195,7 @@
 {
     if (![standardError isEqualToString:@""]) {
         NSString *message = [standardError stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        self.footerTextField.stringValue = [NSString stringWithFormat:@"%@ [%.2fms]", message, time * 1000];
+        _footerTextField.stringValue = [NSString stringWithFormat:@"%@ [%.2fms]", message, time * 1000];
     }
 }
 

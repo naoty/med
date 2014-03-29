@@ -11,12 +11,11 @@
 #import "MEDConfig.h"
 #import "MEDPublisher.h"
 #import "MEDDocument.h"
-#import "NTYSmartTextView.h"
 
 @interface MEDAppDelegate ()
 @property (nonatomic) MEDConfig *config;
 @property (nonatomic) NSMenu *stylesheetsSubMenu;
-@property (nonatomic, readonly) MEDWindowController *windowController;
+@property (nonatomic, readonly) MEDWindowController *mainWindowController;
 @end
 
 @implementation MEDAppDelegate
@@ -75,41 +74,33 @@
 {
     NSMenuItem *selectedMenuItem = (NSMenuItem *) sender;
     NSString *stylesheetPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:selectedMenuItem.title];
-    [[self windowController] changePreviewStylesheetAtPath:stylesheetPath];
+    [[self mainWindowController] changePreviewStylesheetAtPath:stylesheetPath];
 }
 
 - (void)didStylesheetMenuItemSelected:(id)sender
 {
     NSMenuItem *selectedMenuItem = (NSMenuItem *) sender;
     NSString *stylesheetPath = [[@"~/.med/stylesheets" stringByAppendingPathComponent:selectedMenuItem.title] stringByExpandingTildeInPath];
-    [[self windowController] changePreviewStylesheetAtPath:stylesheetPath];
+    [[self mainWindowController] changePreviewStylesheetAtPath:stylesheetPath];
 }
 
 - (void)didMarkdownPublisherMenuItemSelected:(id)sender
 {
     NSMenuItem *selectedMenuItem = (NSMenuItem *) sender;
-    
     MEDPublisher *publisher = [[MEDPublisher alloc] initWithName:selectedMenuItem.title];
-    publisher.delegate = self.windowController;
-    MEDDocument *document = self.windowController.document;
-    NSString *filename = document.fileURL.lastPathComponent.stringByDeletingPathExtension;
-    [publisher runWithFilename:filename standardInput:self.windowController.editor.string];
+    [self.mainWindowController runMarkdownPublisher:publisher];
 }
 
 - (void)didHTMLPublisherMenuItemSelected:(id)sender
 {
     NSMenuItem *selectedMenuItem = (NSMenuItem *) sender;
-    
     MEDPublisher *publisher = [[MEDPublisher alloc] initWithName:selectedMenuItem.title];
-    publisher.delegate = self.windowController;
-    MEDDocument *document = self.windowController.document;
-    NSString *filename = document.fileURL.lastPathComponent.stringByDeletingPathExtension;
-    [publisher runWithFilename:filename standardInput:self.windowController.body];
+    [self.mainWindowController runHTMLPublisher:publisher];
 }
 
 #pragma mark - Private methods
 
-- (MEDWindowController *)windowController
+- (MEDWindowController *)mainWindowController
 {
     NSWindow *mainWindow = [[NSApplication sharedApplication] mainWindow];
     return (MEDWindowController *) mainWindow.windowController;
