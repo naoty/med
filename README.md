@@ -47,6 +47,22 @@ These scripts receive texts as standard input and the the absolute path of an op
 
 You can add custom styelsheets for preview. Stylesheets at `~/.med/stylesheets/*.css` are loaded and can be selected from menu `View > Preview stylesheets`.
 
-## med-scripts
+## Quick start
 
-I provide [med-scripts](https://github.com/naoty/med-scripts) for easy start. This repository includes scripts such as markdown parser and emoji parser.
+I provide [med-scripts](https://github.com/naoty/med-scripts) for quick start. This repository includes scripts such as markdown parser and emoji parser written by node.js. For setup these scripts, clone this repository and run `npm install`.
+
+```sh
+$ git clone https://github.com/naoty/med-scripts.git && cd med-scripts
+$ npm install
+```
+
+Then, edit your `~/.med.json` like below.
+
+```json
+{
+    "path": "/path/to/node:/path/to/med-scripts/bin",
+    "parsers": [
+        "markdown"
+    ]
+}
+```
