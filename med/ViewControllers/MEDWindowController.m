@@ -57,18 +57,19 @@
     
     MEDConfig *config = [MEDConfig sharedConfig];
     
-    self.editor.font = [NSFont fontWithName:config.fontName size:[config.fontSize floatValue]];
-    self.editor.automaticQuoteSubstitutionEnabled = NO;
-    self.editor.automaticDashSubstitutionEnabled = NO;
-    self.editor.textContainerInset = NSMakeSize(config.padding.floatValue, config.padding.floatValue);
-    self.editor.smartIndentEnabled = config.smartIndentEnabled;
-    self.editor.softTabEnabled = config.softTabEnabled;
-    self.editor.tabWidth = [config.tabWidth intValue];
-    self.editor.autoPairCompletionEnabled = config.autoPairCompletionEnabled;
+    _editor.font = [NSFont fontWithName:config.fontName size:[config.fontSize floatValue]];
+    _editor.textStorage.font = [NSFont fontWithName:config.fontName size:[config.fontSize floatValue]];
+    _editor.automaticQuoteSubstitutionEnabled = NO;
+    _editor.automaticDashSubstitutionEnabled = NO;
+    _editor.textContainerInset = NSMakeSize(config.padding.floatValue, config.padding.floatValue);
+    _editor.smartIndentEnabled = config.smartIndentEnabled;
+    _editor.softTabEnabled = config.softTabEnabled;
+    _editor.tabWidth = [config.tabWidth intValue];
+    _editor.autoPairCompletionEnabled = config.autoPairCompletionEnabled;
     
     self.preview = [self.webView mainFrame];
     self.pipeline = [[MEDPipeline alloc] init];
-    self.pipeline.delegate = self;
+    _pipeline.delegate = self;
     
     // Enable web inspector
     [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"WebKitDeveloperExtras"];
@@ -76,8 +77,8 @@
     
     MEDDocument *document = (MEDDocument *)self.document;
     if (document.text != nil) {
-        self.editor.string = ((MEDDocument *)self.document).text;
-        [self.pipeline runWithInput:self.editor.string];
+        _editor.string = ((MEDDocument *)self.document).text;
+        [_pipeline runWithInput:self.editor.string];
     }
 }
 
